@@ -1,0 +1,31 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  elasticsearch:
+    rest:
+      uris: http://10.10.16.96:9201
+      username: rdata
+      password: 123456
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@10.10.16.36:1521:orcl
+    username: crdms_publish
+    password: crdms_publish
+    hikari:
+      auto-commit: true
+      connection-timeout: 20000
+      idle-timeout: 300000
+      max-lifetime: 1200000
+      maximum-pool-size: 30
+      minimum-idle: 5
+mybatis-plus:
+  global-config:
+    banner: false
+  mapper-locations: classpath:mapper/*.xml
+
+logging:
+  level:
+    com.xw: info
+  file:
+    path: ${user.home}/est/logs
+debug: false
