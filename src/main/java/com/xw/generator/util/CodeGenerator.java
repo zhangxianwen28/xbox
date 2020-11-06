@@ -13,9 +13,10 @@ import com.baomidou.mybatisplus.generator.config.StrategyConfig;
 import com.baomidou.mybatisplus.generator.config.TemplateConfig;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
-import com.xw.bean.DataSource;
-import com.xw.bean.DataSourceInfo;
-import com.xw.bean.GeneratorFrom;
+import com.xw.generator.bean.DataSource;
+import com.xw.generator.bean.DataSourceInfo;
+import com.xw.generator.bean.GeneratorFrom;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +31,7 @@ import java.util.List;
 
 
 public class CodeGenerator {
-    public static void generator(GeneratorFrom generatorFrom,String table) {
+    public static void generator(GeneratorFrom generatorFrom, String table) {
         AutoGenerator generator = new AutoGenerator();
         // 全局配置
         GlobalConfig globalConfig = new GlobalConfig();
