@@ -30,22 +30,28 @@ jar {
 }
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
-/*    implementation 'org.springframework.boot:spring-boot-starter:2.3.1.RELEASE'
-    implementation 'org.springframework.data:spring-data-elasticsearch:4.0.1.RELEASE'*/
+    // spring
+    implementation 'org.springframework.boot:spring-boot-starter:2.3.1.RELEASE'
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.3.1.RELEASE'
+    implementation 'org.springframework.data:spring-data-elasticsearch:4.0.1.RELEASE'
+    //implementation 'org.apache.rocketmq:rocketmq-spring-boot-starter:2.0.3'
     implementation 'com.baomidou:mybatis-plus-boot-starter:3.3.1'
     implementation 'com.oracle:ojdbc14:10.2.0.4.0'
-
+    implementation 'com.google.guava:guava:27.0.1-jre'
     implementation 'com.baomidou:mybatis-plus-generator:3.3.1'
     implementation 'org.freemarker:freemarker:2.3.28'
-
-
+    // 中文支持
+    implementation 'com.hankcs:hanlp:portable-1.7.4'
+    // html解析
+    implementation 'org.jsoup:jsoup:1.13.1'
+    // lombok
     compileOnly "org.projectlombok:lombok:1.18.2"
     annotationProcessor "org.projectlombok:lombok:1.18.2"
     testCompileOnly "org.projectlombok:lombok:1.18.2"
     testAnnotationProcessor "org.projectlombok:lombok:1.18.2"
-
+    // JFormDesigner
     implementation 'com.formdev:flatlaf:0.40'
-    implementation 'org.jdesktop:beansbinding:1.2.1'
-    implementation 'com.jgoodies:forms:1.2.1'
+    //implementation 'org.jdesktop:beansbinding:1.2.1'
+    //implementation 'com.jgoodies:forms:1.2.1'
     compile fileTree(dir: 'src/main/libs', includes: ['*.jar'])
 }
