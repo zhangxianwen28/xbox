@@ -1,13 +1,11 @@
 plugins {
     id 'java'
     id 'maven-publish'
+/*    id 'org.springframework.boot' version '2.1.3.RELEASE'*/
 }
 
 group 'org.example'
 version '1.0-SNAPSHOT'
-/*
-http://10.10.16.18/pharmacodia-cloud/cloud-redfox-web/g_rs_02/rdata-clinical-ctr.git
-*/
 sourceCompatibility = 1.8
 
 repositories {

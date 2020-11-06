@@ -1,7 +1,6 @@
-package com.xw.bean;
+package com.xw.generator.bean;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 

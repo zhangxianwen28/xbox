@@ -1,4 +1,4 @@
-package com.xw.util;
+package com.xw.generator.util;
 
 public class XUtils {
 

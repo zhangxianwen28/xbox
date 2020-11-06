@@ -1,11 +1,9 @@
-package com.xw.action;
+package com.xw.generator.action;
 
-import com.xw.Application;
 import com.xw.bean.Table;
 import com.xw.bean.TableInfo;
 
 import javax.swing.*;
-import javax.swing.plaf.basic.BasicOptionPaneUI;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;

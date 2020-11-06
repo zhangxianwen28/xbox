@@ -1,5 +1,5 @@
 
-package com.xw.util;
+package com.xw.generator.util;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;

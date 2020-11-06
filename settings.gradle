@@ -1,2 +1,10 @@
+pluginManagement {
+    repositories {
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/groups/public'
+        }
+        gradlePluginPortal()
+    }
+}
 rootProject.name = 'xbox'
 

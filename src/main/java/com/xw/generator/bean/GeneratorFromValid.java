@@ -1,4 +1,4 @@
-package com.xw.bean;
+package com.xw.generator.bean;
 
 public class GeneratorFromValid {
 

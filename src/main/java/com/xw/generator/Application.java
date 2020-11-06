@@ -1,4 +1,4 @@
-package com.xw;
+package com.xw.generator;
 
 
 import com.formdev.flatlaf.FlatDarkLaf;
@@ -6,7 +6,7 @@ import com.formdev.flatlaf.FlatDarkLaf;
 import javax.swing.*;
 
 public class Application {
-    private static  Box box;
+    private static com.xw.generator.Box box;
 
     public static void main(String[] args) {
         Application application = new Application();

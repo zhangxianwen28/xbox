@@ -2,7 +2,7 @@
  * Created by JFormDesigner on Wed Aug 19 13:44:28 CST 2020
  */
 
-package com.xw;
+package com.xw.generator;
 
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 import com.jgoodies.forms.layout.CellConstraints;
