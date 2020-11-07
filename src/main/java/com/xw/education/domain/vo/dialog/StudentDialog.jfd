@@ -1,0 +1,59 @@
+JFDML JFormDesigner: "7.0.2.4.305" Java: "11.0.5" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq {comp label1:::p:40:p, space :5:5:p, comp textField1:::p:197:p}, seq {comp label2:::p:40:p, space :5:5:p, comp textField2:::p:197:p}, seq {comp label3:::p:40:p, space :5:5:p, comp textField3:::p:197:p}, seq {comp label4:::p:40:p, space :5:5:p, comp comboBox1:::p:132:p}, seq {comp label5:::p:40:p, space :5:5:p, comp textField5:::p:132:p}}"
+			"$verticalGroup": "par l {seq {par l {seq {space :6:6:p, comp label1:::p::p}, comp textField1:::p::p}, space :5:5:p, par l {seq {space :6:6:p, comp label2:::p::p}, comp textField2:::p::p}, space :5:5:p, par l {seq {space :6:6:p, comp label3:::p::p}, comp textField3:::p::p}, space :5:5:p, par l {seq {space :6:6:p, comp label4:::p::p}, comp comboBox1:::p::p}, space :5:5:p, par l {seq {space :6:6:p, comp label5:::p::p}, comp textField5:::p::p}}}"
+		} ) {
+			name: "this"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "姓名："
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textField1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "地址："
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textField2"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label3"
+				"text": "电话："
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textField3"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label4"
+				"text": "性别："
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "comboBox1"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label5"
+				"text": "年龄："
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textField5"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 15, 25 )
+			"size": new java.awt.Dimension( 310, 205 )
+		} )
+		addBindingGroup( new FormBindingGroup( class org.jdesktop.beansbinding.BindingGroup ) {
+			"name": "bindingGroup"
+			addBinding( new FormBinding( "this", "sex", "comboBox1", "elements" ) )
+			addBinding( new FormBinding( "this", "studentVO.name", "textField1", "text" ) )
+			addBinding( new FormBinding( "this", "studentVO.address", "textField2", "text" ) )
+			addBinding( new FormBinding( "this", "studentVO.phone", "textField3", "text" ) )
+			addBinding( new FormBinding( "this", "studentVO.sex", "comboBox1", "selectedItem" ) )
+		} )
+	}
+}

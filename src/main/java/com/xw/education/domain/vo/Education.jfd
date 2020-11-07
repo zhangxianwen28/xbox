@@ -1,0 +1,35 @@
+JFDML JFormDesigner: "7.0.2.4.305" Java: "11.0.5" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+			name: "this"
+			"defaultCloseOperation": 3
+			add( new FormContainer( "javax.swing.JTabbedPane", new FormLayoutManager( class javax.swing.JTabbedPane ) ) {
+				name: "tabbedPane2"
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.FlowLayout ) {
+					"alignment": 0
+				} ) {
+					name: "panel3"
+					add( new FormComponent( "com.xw.education.domain.vo.table.StudentTableView" ) {
+						name: "studentTableView1"
+					} )
+				}, new FormLayoutConstraints( null ) {
+					"title": "学生管理"
+				} )
+				add( new FormComponent( "com.xw.education.domain.vo.call.StudentCall" ) {
+					name: "studentCall1"
+				}, new FormLayoutConstraints( null ) {
+					"title": "点名"
+				} )
+			}, new FormLayoutConstraints( class java.lang.String ) {
+				"value": "Center"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 5 )
+			"size": new java.awt.Dimension( 675, 580 )
+		} )
+	}
+}
+
