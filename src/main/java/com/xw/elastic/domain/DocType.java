@@ -1,4 +1,4 @@
-package com.xw.bean.vo;
+package com.xw.elastic.domain;
 
 public enum DocType {
     TEXT("文本"),

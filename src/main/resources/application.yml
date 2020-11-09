@@ -6,6 +6,10 @@ spring:
       uris: http://10.10.16.96:9201
       username: rdata
       password: 123456
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
   datasource:
     driver-class-name: oracle.jdbc.driver.OracleDriver
     url: jdbc:oracle:thin:@10.10.16.36:1521:orcl

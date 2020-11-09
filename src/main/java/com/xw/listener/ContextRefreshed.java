@@ -1,6 +1,7 @@
 package com.xw.listener;
 
 
+import com.xw.elastic.domain.StartLog;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.*;
@@ -16,6 +17,7 @@ public class ContextRefreshed implements ApplicationListener<ContextRefreshedEve
     @Override
     public void onApplicationEvent(ContextRefreshedEvent applicationEvent) {
         log.info("=====================ContextRefreshed=====================");
+        StartLog.log.add("Spring上下文刷新");
     }
 }
 

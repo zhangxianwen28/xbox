@@ -1,4 +1,4 @@
-package com.xw.bean.vo;
+package com.xw.elastic;
 
 import lombok.Data;
 
@@ -15,7 +15,7 @@ public class Tree<T> {
     private String pid;
     // 子节点
     private List<Tree<T>> childNode = new ArrayList<>();
-    ;
+
     // 是否根节点
     private Boolean root;
 
