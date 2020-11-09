@@ -4,6 +4,7 @@
 
 package com.xw.elastic.domain.vo;
 
+import java.awt.event.*;
 import com.formdev.flatlaf.FlatDarkLaf;
 import com.xw.elastic.domain.StartLog;
 
@@ -15,6 +16,8 @@ import java.awt.*;
  */
 public class Home extends JFrame {
     public Home() {
+        this.setUndecorated(true);
+        this.getRootPane().setWindowDecorationStyle(JRootPane.FRAME);
         initComponents();
     }
     public static void createUI(){
@@ -47,14 +50,23 @@ public class Home extends JFrame {
         }).start();
 
     }
+
+    private void menuItem6ActionPerformed(ActionEvent e) {
+        CardLayout cardLayout = (CardLayout)panel1.getLayout();
+        cardLayout.show(panel1,e.getActionCommand());
+    }
+
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         menuBar1 = new JMenuBar();
         menu1 = new JMenu();
         menuItem6 = new JMenuItem();
-        panel2 = new JPanel();
+        panel1 = new JPanel();
+        index = new JPanel();
         label1 = new JLabel();
         label2 = new JLabel();
+        esTab1 = new EsTab();
         popupMenu1 = new JPopupMenu();
         menuItem1 = new JMenuItem();
         menuItem5 = new JMenuItem();
@@ -72,27 +84,36 @@ public class Home extends JFrame {
 
             //======== menu1 ========
             {
-                menu1.setText("\u5f00\u59cb");
+                menu1.setText("\u7ba1\u7406");
 
                 //---- menuItem6 ----
                 menuItem6.setText("\u7d22\u5f15");
+                menuItem6.setActionCommand("estab");
+                menuItem6.addActionListener(e -> menuItem6ActionPerformed(e));
                 menu1.add(menuItem6);
             }
             menuBar1.add(menu1);
         }
         setJMenuBar(menuBar1);
 
-        //======== panel2 ========
+        //======== panel1 ========
         {
-            panel2.setPreferredSize(new Dimension(590, 320));
-            panel2.setLayout(new FlowLayout());
+            panel1.setLayout(new CardLayout());
 
-            //---- label1 ----
-            label1.setText("\u670d\u52a1\u542f\u52a8\u4e2d\uff0c\u8bf7\u7a0d\u540e...");
-            panel2.add(label1);
-            panel2.add(label2);
+            //======== index ========
+            {
+                index.setPreferredSize(new Dimension(590, 320));
+                index.setLayout(new FlowLayout());
+
+                //---- label1 ----
+                label1.setText("\u670d\u52a1\u542f\u52a8\u4e2d\uff0c\u8bf7\u7a0d\u540e...");
+                index.add(label1);
+                index.add(label2);
+            }
+            panel1.add(index, "index");
+            panel1.add(esTab1, "estab");
         }
-        contentPane.add(panel2, BorderLayout.CENTER);
+        contentPane.add(panel1, BorderLayout.CENTER);
         pack();
         setLocationRelativeTo(getOwner());
 
@@ -126,9 +147,11 @@ public class Home extends JFrame {
     private JMenuBar menuBar1;
     private JMenu menu1;
     private JMenuItem menuItem6;
-    private JPanel panel2;
+    private JPanel panel1;
+    private JPanel index;
     private JLabel label1;
     private JLabel label2;
+    private EsTab esTab1;
     private JPopupMenu popupMenu1;
     private JMenuItem menuItem1;
     private JMenuItem menuItem5;

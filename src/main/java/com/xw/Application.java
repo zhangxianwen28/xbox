@@ -18,7 +18,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringBootApplication
 @EnableScheduling //启动定时
 @EnableAsync //启用异步
-
 public class Application {
     public Application(){
         Home.createUI();
