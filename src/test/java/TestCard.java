@@ -1,13 +1,8 @@
-package com.xw.elastic.domain.vo;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
 public class TestCard {
-
-
-
         JPanel mainPanel = new JPanel();
         JMenu menu = new JMenu("Menu");
         JMenuBar menuBar = new JMenuBar();

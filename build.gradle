@@ -44,7 +44,7 @@ dependencies {
     implementation 'com.baomidou:mybatis-plus-generator:3.3.1'
     implementation 'org.freemarker:freemarker:2.3.28'
     implementation 'com.alibaba:easyexcel:2.2.6'
-    implementation 'org.hibernate:hibernate-core:5.4.4.Final'
+    //implementation 'org.hibernate:hibernate-core:5.4.4.Final'
     implementation "com.h2database:h2:1.4.196"
     // 中文支持
     implementation 'com.hankcs:hanlp:portable-1.7.4'

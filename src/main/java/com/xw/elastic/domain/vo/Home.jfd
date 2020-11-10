@@ -21,10 +21,15 @@ new FormModel {
 				}, new FormLayoutConstraints( class java.lang.String ) {
 					"value": "index"
 				} )
-				add( new FormComponent( "com.xw.elastic.domain.vo.EsTab" ) {
-					name: "esTab1"
+				add( new FormComponent( "com.xw.elastic.domain.vo.component.IndexTablePanel" ) {
+					name: "indexTablePanel1"
 				}, new FormLayoutConstraints( class java.lang.String ) {
-					"value": "estab"
+					"value": "card2"
+				} )
+				add( new FormComponent( "com.xw.elastic.domain.vo.component.EsTreeComponent" ) {
+					name: "esTreeComponent1"
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "card3"
 				} )
 			}, new FormLayoutConstraints( class java.lang.String ) {
 				"value": "Center"
@@ -35,9 +40,15 @@ new FormModel {
 					name: "menu1"
 					"text": "管理"
 					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "menuItem7"
+						"text": "树"
+						"actionCommand": "card3"
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "menuItem7ActionPerformed", true ) )
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
 						name: "menuItem6"
 						"text": "索引"
-						"actionCommand": "estab"
+						"actionCommand": "card2"
 						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "menuItem6ActionPerformed", true ) )
 					} )
 				} )

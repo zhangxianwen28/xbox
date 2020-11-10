@@ -17,7 +17,7 @@ public class ContextRefreshed implements ApplicationListener<ContextRefreshedEve
     @Override
     public void onApplicationEvent(ContextRefreshedEvent applicationEvent) {
         log.info("=====================ContextRefreshed=====================");
-        StartLog.log.add("Spring上下文刷新");
+        StartLog.log.add("就绪");
     }
 }
 

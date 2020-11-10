@@ -10,6 +10,7 @@ import com.xw.elastic.domain.StartLog;
 
 import javax.swing.*;
 import java.awt.*;
+import com.xw.elastic.domain.vo.component.*;
 
 /**
  * @author Brainrain
@@ -31,10 +32,13 @@ public class Home extends JFrame {
         home.setVisible(true);
         home.setEnabled(false);
         new Thread(() -> {
-            for (int i = 0; i <2 ; i++) {
+            for (;;) {
                 try {
                     String take = StartLog.log.take();
                     home.label2.setText(take);
+                    if("就绪".equals(take)){
+                        break;
+                    }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -52,8 +56,19 @@ public class Home extends JFrame {
     }
 
     private void menuItem6ActionPerformed(ActionEvent e) {
+        show(e);
+        indexTablePanel1.getIndexTableBO().page();
+    }
+
+    private void show(ActionEvent e) {
         CardLayout cardLayout = (CardLayout)panel1.getLayout();
-        cardLayout.show(panel1,e.getActionCommand());
+        String actionCommand = e.getActionCommand();
+        cardLayout.show(panel1, actionCommand);
+    }
+
+    private void menuItem7ActionPerformed(ActionEvent e) {
+        show(e);
+
     }
 
 
@@ -61,12 +76,14 @@ public class Home extends JFrame {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         menuBar1 = new JMenuBar();
         menu1 = new JMenu();
+        menuItem7 = new JMenuItem();
         menuItem6 = new JMenuItem();
         panel1 = new JPanel();
         index = new JPanel();
         label1 = new JLabel();
         label2 = new JLabel();
-        esTab1 = new EsTab();
+        indexTablePanel1 = new IndexTablePanel();
+        esTreeComponent1 = new EsTreeComponent();
         popupMenu1 = new JPopupMenu();
         menuItem1 = new JMenuItem();
         menuItem5 = new JMenuItem();
@@ -86,9 +103,15 @@ public class Home extends JFrame {
             {
                 menu1.setText("\u7ba1\u7406");
 
+                //---- menuItem7 ----
+                menuItem7.setText("\u6811");
+                menuItem7.setActionCommand("card3");
+                menuItem7.addActionListener(e -> menuItem7ActionPerformed(e));
+                menu1.add(menuItem7);
+
                 //---- menuItem6 ----
                 menuItem6.setText("\u7d22\u5f15");
-                menuItem6.setActionCommand("estab");
+                menuItem6.setActionCommand("card2");
                 menuItem6.addActionListener(e -> menuItem6ActionPerformed(e));
                 menu1.add(menuItem6);
             }
@@ -111,7 +134,8 @@ public class Home extends JFrame {
                 index.add(label2);
             }
             panel1.add(index, "index");
-            panel1.add(esTab1, "estab");
+            panel1.add(indexTablePanel1, "card2");
+            panel1.add(esTreeComponent1, "card3");
         }
         contentPane.add(panel1, BorderLayout.CENTER);
         pack();
@@ -146,12 +170,14 @@ public class Home extends JFrame {
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     private JMenuBar menuBar1;
     private JMenu menu1;
+    private JMenuItem menuItem7;
     private JMenuItem menuItem6;
     private JPanel panel1;
     private JPanel index;
     private JLabel label1;
     private JLabel label2;
-    private EsTab esTab1;
+    private IndexTablePanel indexTablePanel1;
+    private EsTreeComponent esTreeComponent1;
     private JPopupMenu popupMenu1;
     private JMenuItem menuItem1;
     private JMenuItem menuItem5;
