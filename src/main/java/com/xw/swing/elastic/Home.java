@@ -6,7 +6,7 @@ package com.xw.swing.elastic;
 
 import java.awt.event.*;
 import com.formdev.flatlaf.FlatDarkLaf;
-import com.xw.swing.elastic.panel.IndexTreePanel;
+
 import com.xw.swing.elastic.panel.IndexTablePanel;
 import com.xw.util.StartLog;
 
@@ -85,7 +85,6 @@ public class Home extends JFrame {
         label1 = new JLabel();
         label2 = new JLabel();
         indexTablePanel1 = new IndexTablePanel();
-        indexTreePanel1 = new IndexTreePanel();
         popupMenu1 = new JPopupMenu();
         menuItem1 = new JMenuItem();
         menuItem5 = new JMenuItem();
@@ -137,7 +136,6 @@ public class Home extends JFrame {
             }
             panel1.add(index, "index");
             panel1.add(indexTablePanel1, "card2");
-            panel1.add(indexTreePanel1, "card3");
         }
         contentPane.add(panel1, BorderLayout.CENTER);
         pack();
@@ -179,7 +177,6 @@ public class Home extends JFrame {
     private JLabel label1;
     private JLabel label2;
     private IndexTablePanel indexTablePanel1;
-    private IndexTreePanel indexTreePanel1;
     private JPopupMenu popupMenu1;
     private JMenuItem menuItem1;
     private JMenuItem menuItem5;

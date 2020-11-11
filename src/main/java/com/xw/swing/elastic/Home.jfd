@@ -21,15 +21,10 @@ new FormModel {
 				}, new FormLayoutConstraints( class java.lang.String ) {
 					"value": "index"
 				} )
-				add( new FormComponent( "com.xw.elastic.domain.vo.component.IndexTablePanel" ) {
+				add( new FormComponent( "com.xw.swing.elastic.panel.IndexTablePanel" ) {
 					name: "indexTablePanel1"
 				}, new FormLayoutConstraints( class java.lang.String ) {
 					"value": "card2"
-				} )
-				add( new FormComponent( "com.xw.elastic.domain.vo.component.EsTreeComponent" ) {
-					name: "esTreeComponent1"
-				}, new FormLayoutConstraints( class java.lang.String ) {
-					"value": "card3"
 				} )
 			}, new FormLayoutConstraints( class java.lang.String ) {
 				"value": "Center"

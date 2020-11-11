@@ -19,10 +19,7 @@ public class IndexFormPanel extends JPanel {
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         DefaultComponentFactory compFactory = DefaultComponentFactory.getInstance();
-        panel1 = new JPanel();
-        button3 = new JButton();
-        button2 = new JButton();
-        panel7 = new JPanel();
+        panel2 = new JPanel();
         separator2 = compFactory.createSeparator("\u57fa\u672c");
         label11 = new JLabel();
         textField3 = new JTextField();
@@ -32,6 +29,14 @@ public class IndexFormPanel extends JPanel {
         textField2 = new JTextField();
         label13 = new JLabel();
         textField9 = new JTextField();
+        panel1 = new JPanel();
+        button3 = new JButton();
+        button2 = new JButton();
+        panel3 = new JPanel();
+        indexTreePanel1 = new IndexTreePanel();
+        scrollPane2 = new JScrollPane();
+        list1 = new JList();
+        panel7 = new JPanel();
         separator1 = compFactory.createSeparator("  \u6620\u5c04");
         label1 = new JLabel();
         textField1 = new JTextField();
@@ -54,6 +59,55 @@ public class IndexFormPanel extends JPanel {
         //======== this ========
         setLayout(new BorderLayout());
 
+        //======== panel2 ========
+        {
+            panel2.setLayout(new GridBagLayout());
+            ((GridBagLayout)panel2.getLayout()).columnWidths = new int[] {0, 0, 143, 88, 158, 190, 0};
+            ((GridBagLayout)panel2.getLayout()).rowHeights = new int[] {0, 0, 0, 0};
+            ((GridBagLayout)panel2.getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0E-4};
+            ((GridBagLayout)panel2.getLayout()).rowWeights = new double[] {1.0, 0.0, 0.0, 1.0E-4};
+            panel2.add(separator2, new GridBagConstraints(0, 0, 6, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 0, 0), 0, 0));
+
+            //---- label11 ----
+            label11.setText("\u7d22\u5f15\u540d\u79f0");
+            panel2.add(label11, new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
+                new Insets(0, 0, 0, 0), 0, 0));
+            panel2.add(textField3, new GridBagConstraints(2, 1, 1, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 0, 0), 0, 0));
+
+            //---- label12 ----
+            label12.setText("\u7d22\u5f15\u522b\u540d");
+            panel2.add(label12, new GridBagConstraints(3, 1, 1, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
+                new Insets(0, 0, 0, 0), 0, 0));
+            panel2.add(textField8, new GridBagConstraints(4, 1, 1, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 0, 0), 0, 0));
+
+            //---- label10 ----
+            label10.setText("text");
+            panel2.add(label10, new GridBagConstraints(1, 2, 1, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
+                new Insets(0, 0, 0, 0), 0, 0));
+            panel2.add(textField2, new GridBagConstraints(2, 2, 1, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 0, 0), 0, 0));
+
+            //---- label13 ----
+            label13.setText("text");
+            panel2.add(label13, new GridBagConstraints(3, 2, 1, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
+                new Insets(0, 0, 0, 0), 0, 0));
+            panel2.add(textField9, new GridBagConstraints(4, 2, 1, 1, 0.0, 0.0,
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 0, 0), 0, 0));
+        }
+        add(panel2, BorderLayout.NORTH);
+
         //======== panel1 ========
         {
             panel1.setLayout(new FlowLayout(FlowLayout.RIGHT));
@@ -68,6 +122,19 @@ public class IndexFormPanel extends JPanel {
         }
         add(panel1, BorderLayout.SOUTH);
 
+        //======== panel3 ========
+        {
+            panel3.setLayout(new BorderLayout());
+            panel3.add(indexTreePanel1, BorderLayout.WEST);
+
+            //======== scrollPane2 ========
+            {
+                scrollPane2.setViewportView(list1);
+            }
+            panel3.add(scrollPane2, BorderLayout.CENTER);
+        }
+        add(panel3, BorderLayout.CENTER);
+
         //======== panel7 ========
         {
             panel7.setLayout(new GridBagLayout());
@@ -75,45 +142,6 @@ public class IndexFormPanel extends JPanel {
             ((GridBagLayout)panel7.getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
             ((GridBagLayout)panel7.getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
             ((GridBagLayout)panel7.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
-            panel7.add(separator2, new GridBagConstraints(0, 1, 6, 1, 0.0, 0.0,
-                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 0, 5, 0), 0, 0));
-
-            //---- label11 ----
-            label11.setText("\u7d22\u5f15\u540d\u79f0");
-            panel7.add(label11, new GridBagConstraints(1, 2, 1, 1, 0.0, 0.0,
-                GridBagConstraints.WEST, GridBagConstraints.VERTICAL,
-                new Insets(0, 0, 5, 5), 0, 0));
-            panel7.add(textField3, new GridBagConstraints(2, 2, 1, 1, 0.0, 0.0,
-                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 0, 5, 5), 0, 0));
-
-            //---- label12 ----
-            label12.setText("\u7d22\u5f15\u522b\u540d");
-            panel7.add(label12, new GridBagConstraints(3, 2, 1, 1, 0.0, 0.0,
-                GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
-                new Insets(0, 0, 5, 5), 0, 0));
-            panel7.add(textField8, new GridBagConstraints(4, 2, 1, 1, 0.0, 0.0,
-                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 0, 5, 5), 0, 0));
-
-            //---- label10 ----
-            label10.setText("text");
-            panel7.add(label10, new GridBagConstraints(1, 3, 1, 1, 0.0, 0.0,
-                GridBagConstraints.WEST, GridBagConstraints.VERTICAL,
-                new Insets(0, 0, 5, 5), 0, 0));
-            panel7.add(textField2, new GridBagConstraints(2, 3, 1, 1, 0.0, 0.0,
-                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 0, 5, 5), 0, 0));
-
-            //---- label13 ----
-            label13.setText("text");
-            panel7.add(label13, new GridBagConstraints(3, 3, 1, 1, 0.0, 0.0,
-                GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
-                new Insets(0, 0, 5, 5), 0, 0));
-            panel7.add(textField9, new GridBagConstraints(4, 3, 1, 1, 0.0, 0.0,
-                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 0, 5, 5), 0, 0));
             panel7.add(separator1, new GridBagConstraints(0, 4, 6, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 5, 0), 0, 0));
@@ -214,15 +242,11 @@ public class IndexFormPanel extends JPanel {
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 0, 5), 0, 0));
         }
-        add(panel7, BorderLayout.CENTER);
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    private JPanel panel1;
-    private JButton button3;
-    private JButton button2;
-    private JPanel panel7;
+    private JPanel panel2;
     private JComponent separator2;
     private JLabel label11;
     private JTextField textField3;
@@ -232,6 +256,14 @@ public class IndexFormPanel extends JPanel {
     private JTextField textField2;
     private JLabel label13;
     private JTextField textField9;
+    private JPanel panel1;
+    private JButton button3;
+    private JButton button2;
+    private JPanel panel3;
+    private IndexTreePanel indexTreePanel1;
+    private JScrollPane scrollPane2;
+    private JList list1;
+    private JPanel panel7;
     private JComponent separator1;
     private JLabel label1;
     private JTextField textField1;

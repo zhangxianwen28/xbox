@@ -39,6 +39,10 @@ new FormModel {
 					name: "label6"
 					"text": "页"
 				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button10"
+					"text": "导出"
+				} )
 			}, new FormLayoutConstraints( class java.lang.String ) {
 				"value": "South"
 			} )
@@ -52,25 +56,85 @@ new FormModel {
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
 				name: "panel4"
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
+					"$columnSpecs": "0, 126, center:27"
 					"$rowSpecs": "0, 0, 0, 0, 0, 0, 0, 0, 0"
 					"$hGap": 5
 					"$vGap": 5
 					"$alignLeft": true
 					"$alignTop": true
-					"$columnSpecs": "25"
 				} ) {
 					name: "panel3"
+					add( new FormComponent( "com.jformdesigner.designer.wrapper.JGoodiesFormsSeparator" ) {
+						name: "separator1"
+						"text": "  检索条件："
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridy": 1
+						"gridwidth": 3
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label4"
+						"text": "  姓名："
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridy": 2
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "textField1"
+						"preferredSize": new java.awt.Dimension( 100, 30 )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridx": 1
+						"gridy": 2
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label7"
+						"text": "  住址："
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridy": 3
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "textField2"
+						"preferredSize": new java.awt.Dimension( 100, 30 )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridx": 1
+						"gridy": 3
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label8"
+						"text": "  电话："
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridy": 4
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "textField3"
+						"preferredSize": new java.awt.Dimension( 100, 30 )
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridx": 1
+						"gridy": 4
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label9"
+						"text": "  性别："
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridy": 5
+					} )
+					add( new FormComponent( "javax.swing.JComboBox" ) {
+						name: "comboBox1"
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridx": 1
+						"gridy": 5
+					} )
 					add( new FormComponent( "javax.swing.JButton" ) {
 						name: "button1"
 						"text": "查询"
 					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-						"gridy": 1
+						"gridy": 6
+						"gridx": 1
 					} )
 					add( new FormComponent( "javax.swing.JButton" ) {
 						name: "button9"
 						"text": "新增"
 					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-						"gridy": 2
+						"gridx": 1
+						"gridy": 7
 					} )
 				}, new FormLayoutConstraints( class java.lang.String ) {
 					"value": "Center"
@@ -108,30 +172,6 @@ new FormModel {
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 720, 30 )
 			"size": new java.awt.Dimension( 45, 85 )
-		} )
-		addBindingGroup( new FormBindingGroup( class org.jdesktop.beansbinding.BindingGroup ) {
-			"name": "bindingGroup"
-			addBinding( new FormBinding( "this", "pageNum", "spinner1", "value" ) )
-			addBinding( new FormBinding( "this", "indexTableBO.totalNum", "label3", "text" ) )
-			addBinding( new FormBinding( "this", "indexTableBO.indexList", "table1", "elements" ) {
-				"subBindings": new com.jformdesigner.model.FormBinding[ new FormBinding( null, "id", null, null ) {
-					"sourcePathType": class java.lang.String
-					"columnName": "Id"
-					"columnClass": "java.lang.String"
-				}, new FormBinding( null, "indexAlia", null, null ) {
-					"sourcePathType": class java.lang.String
-					"columnName": "Index Alia"
-					"columnClass": "java.lang.String"
-				}, new FormBinding( null, "indexName", null, null ) {
-					"sourcePathType": class java.lang.String
-					"columnName": "Index Name"
-					"columnClass": "java.lang.String"
-				}, new FormBinding( null, "status", null, null ) {
-					"sourcePathType": class java.lang.String
-					"columnName": "Status"
-					"columnClass": "java.lang.String"
-				} ]
-			} )
 		} )
 	}
 }
