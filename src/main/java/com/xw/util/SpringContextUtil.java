@@ -1,6 +1,5 @@
 package com.xw.util;
 
-import com.xw.elastic.domain.StartLog;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;

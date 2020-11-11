@@ -21,7 +21,7 @@
         <property name="hibernate.format_sql">true</property>
         <!-- 没有表则自动创建 -->
         <property name="hibernate.hbm2ddl.auto">update</property>
-        <mapping class="com.xw.education.domain.entity.Users"/>
+        <mapping class="com.xw.swing.education.domain.entity.Users"/>
 
     </session-factory>
 </hibernate-configuration>

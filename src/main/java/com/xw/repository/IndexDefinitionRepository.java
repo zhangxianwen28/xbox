@@ -1,0 +1,17 @@
+package com.xw.repository;
+
+import com.xw.swing.elastic.domain.entity.TempIndexDefinitionEntity;
+import org.springframework.data.repository.CrudRepository;
+
+/**
+ * <p>
+ *  Mapper 接口
+ * </p>
+ *
+ * @author zxw
+ * @since 2020-11-09
+ */
+@org.springframework.stereotype.Repository
+public interface IndexDefinitionRepository extends CrudRepository<TempIndexDefinitionEntity,String> {
+
+}

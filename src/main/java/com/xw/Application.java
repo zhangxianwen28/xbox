@@ -1,12 +1,10 @@
 package com.xw;
 
 
-import com.xw.elastic.domain.StartLog;
-import com.xw.elastic.domain.vo.Home;
-import lombok.extern.slf4j.Slf4j;
+import com.xw.util.StartLog;
+import com.xw.swing.elastic.Home;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.context.ApplicationContext;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
