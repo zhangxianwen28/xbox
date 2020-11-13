@@ -19,8 +19,7 @@ import java.util.List;
 public class IndexServiceImpl implements IndexService {
     @Autowired
     IndexRepository indexRepository;
-
-
+    
     @Override
     public Page<TempIndexEntity> page(EsIndexVO query, int page, int size) {
         Specification<TempIndexEntity> specification = (Specification<TempIndexEntity>) (root, criteriaQuery, builder) -> {

@@ -59,7 +59,7 @@ public class Home extends JFrame {
 
     private void menuItem6ActionPerformed(ActionEvent e) {
         show(e);
-        indexTablePanel1.getIndexTableBO().page();
+        indexTablePanel1.initModel();
     }
 
     private void show(ActionEvent e) {

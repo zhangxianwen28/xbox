@@ -1,5 +1,6 @@
 package com.xw.swing.elastic.domain.entity;
 
+import com.xw.swing.education.util.AbstractModelObject;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -20,7 +21,7 @@ import java.io.Serializable;
 @Accessors(chain = true)
 @Entity
 @Table(name="TEMP_INDEX_DEFINITION")
-public class TempIndexDefinitionEntity implements Serializable {
+public class TempIndexDefinitionEntity extends AbstractModelObject implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -52,5 +53,8 @@ public class TempIndexDefinitionEntity implements Serializable {
     @Column(name = "IS_FIELDS")
     private Boolean isFields;
 
-
+    @Override
+    public String toString() {
+        return this.fieldName ;
+    }
 }
