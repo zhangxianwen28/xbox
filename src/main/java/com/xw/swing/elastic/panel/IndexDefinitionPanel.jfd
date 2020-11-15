@@ -5,16 +5,6 @@ new FormModel {
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
 			name: "this"
-			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
-				name: "scrollPane1"
-				add( new FormComponent( "javax.swing.JTree" ) {
-					name: "tree1"
-					"preferredSize": new java.awt.Dimension( 150, 82 )
-					"componentPopupMenu": new FormReference( "popupMenu1" )
-				} )
-			}, new FormLayoutConstraints( class java.lang.String ) {
-				"value": "West"
-			} )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
 				"$columnSpecs": "center:84, 133, center:69, 180, 0"
 				"$rowSpecs": "0, 0, 0, 0"
@@ -83,17 +73,32 @@ new FormModel {
 			}, new FormLayoutConstraints( class java.lang.String ) {
 				"value": "North"
 			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class javax.swing.BoxLayout ) ) {
+				name: "panel1"
+				add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+					name: "scrollPane1"
+					add( new FormComponent( "javax.swing.JTree" ) {
+						name: "tree1"
+						"preferredSize": new java.awt.Dimension( 200, 82 )
+						"componentPopupMenu": new FormReference( "popupMenu1" )
+						addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "tree1MouseClicked", true ) )
+					} )
+				} )
+				add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+					name: "scrollPane2"
+					add( new FormComponent( "javax.swing.JList" ) {
+						name: "list1"
+					} )
+				} )
+			}, new FormLayoutConstraints( class java.lang.String ) {
+				"value": "Center"
+			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )
-			"size": new java.awt.Dimension( 565, 345 )
+			"size": new java.awt.Dimension( 565, 430 )
 		} )
 		add( new FormContainer( "javax.swing.JPopupMenu", new FormLayoutManager( class javax.swing.JPopupMenu ) ) {
 			name: "popupMenu1"
-			add( new FormComponent( "javax.swing.JMenuItem" ) {
-				name: "menuItem1"
-				"text": "添加兄弟节点"
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "addBrotherNode", true ) )
-			} )
 			add( new FormComponent( "javax.swing.JMenuItem" ) {
 				name: "menuItem2"
 				"text": "添加子节点"
@@ -113,6 +118,7 @@ new FormModel {
 		addBindingGroup( new FormBindingGroup( class org.jdesktop.beansbinding.BindingGroup ) {
 			"name": "bindingGroup"
 			addBinding( new FormBinding( "this", "treeModel", "tree1", "model" ) )
+			addBinding( new FormBinding( "this", "details", "list1", "elements" ) )
 		} )
 		addBindingGroup( new FormBindingGroup( class org.jdesktop.beansbinding.BindingGroup ) {
 			"name": "baseInfoGroup"

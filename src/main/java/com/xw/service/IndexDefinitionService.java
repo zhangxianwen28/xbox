@@ -10,5 +10,7 @@ public interface IndexDefinitionService {
 
     void save(TempIndexDefinitionEntity tempIndexDefinitionEntity);
 
+    void saveAll(List<TempIndexDefinitionEntity> entityList);
+
     TempIndexDefinitionEntity getById(String id);
 }

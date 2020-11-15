@@ -2,11 +2,17 @@ package com.xw.swing.elastic.domain.vo;
 
 import com.xw.swing.education.util.AbstractModelObject;
 import com.xw.swing.elastic.domain.DocType;
+import lombok.Data;
+
+import javax.persistence.Column;
 
 
-public class IndexDefinition extends AbstractModelObject {
+public class IndexDefVO extends AbstractModelObject {
     // ID
     private String id;
+
+    private String indexId;
+
     // 父节点
     private String pid;
     // 字段名称
@@ -65,11 +71,69 @@ public class IndexDefinition extends AbstractModelObject {
         changeSupport.firePropertyChange("analyzer", oldAnalyzer, analyzer);
     }
 
-    public void setFields(boolean isFields) {
-        boolean oldFields = this.isFields;
-        this.isFields = isFields;
-        changeSupport.firePropertyChange("isFields", oldFields, isFields);
+
+
+    public void setFieldName(String fieldName) {
+        this.fieldName = fieldName;
+    }
+
+    public void setFieldType(DocType fieldType) {
+        this.fieldType = fieldType;
+    }
+
+    public void setFieldComment(String fieldComment) {
+        this.fieldComment = fieldComment;
     }
 
 
+    public String getId() {
+        return id;
+    }
+
+    public String getPid() {
+        return pid;
+    }
+
+    public String getFieldName() {
+        return fieldName;
+    }
+
+    public DocType getFieldType() {
+        return fieldType;
+    }
+
+    public String getFieldComment() {
+        return fieldComment;
+    }
+
+    public String getCopyTo() {
+        return copyTo;
+    }
+
+    public String getAnalyzer() {
+        return analyzer;
+    }
+
+    public Boolean getFields() {
+        return isFields;
+    }
+
+    public String getIndexId() {
+        return indexId;
+    }
+
+    public void setIndexId(String indexId) {
+        this.indexId = indexId;
+    }
+
+    public void setFields(Boolean fields) {
+        Boolean oldFields = this.isFields;
+        this.isFields = fields;
+        changeSupport.firePropertyChange("isFields", oldFields, fields);
+    }
+
+    @Override
+    public String toString() {
+        return this.fieldName;
+    }
 }

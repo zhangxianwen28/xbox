@@ -147,7 +147,7 @@ new FormModel {
 		} )
 		addBindingGroup( new FormBindingGroup( class org.jdesktop.beansbinding.BindingGroup ) {
 			"name": "bindingGroup"
-			addBinding( new FormBinding( "this", "indexDef.fieldName", "textField1", "text" ) )
+			addBinding( new FormBinding( "this", "indexDef.name", "textField1", "text" ) )
 			addBinding( new FormBinding( "this", "indexDef.pid", "label11", "text" ) )
 			addBinding( new FormBinding( "this", "indexDef.fieldComment", "textArea1", "text" ) )
 			addBinding( new FormBinding( "this", "indexDef.fieldType", "comboBox1", "selectedItem" ) )

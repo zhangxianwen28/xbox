@@ -5,15 +5,13 @@
 package com.xw.swing.elastic.panel;
 
 import java.awt.event.*;
-import com.jgoodies.forms.factories.*;
-import com.jgoodies.forms.layout.*;
 
 import com.xw.controller.IndexController;
 import com.xw.swing.education.domain.dto.PageWrapper;
 import com.xw.swing.elastic.domain.bo.IndexTableBO;
 import com.xw.swing.elastic.domain.vo.EsIndexVO;
+import com.xw.swing.elastic.domain.vo.IndexDefVO;
 import com.xw.util.other.IDGenerator;
-import lombok.Data;
 import org.jdesktop.beansbinding.AutoBinding.UpdateStrategy;
 import org.jdesktop.beansbinding.BeanProperty;
 import org.jdesktop.beansbinding.BindingGroup;
@@ -23,8 +21,8 @@ import org.jdesktop.swingbinding.SwingBindings;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
-import javax.swing.tree.DefaultTreeModel;
 import java.awt.*;
+import java.util.List;
 
 /**
  * @author Brainrain
@@ -62,9 +60,10 @@ public class IndexTablePanel extends JPanel {
         }
 
         EsIndexVO esIndexVO = indexPanel.getEsIndexFrom();
-        esIndexVO.setId(String.valueOf(IDGenerator.getId()));
-        esIndexVO.setStatus("未发布");
-        indexController.save(esIndexVO);
+
+        List<IndexDefVO> indexDefVOS = indexPanel.getTreeModelUserObject();
+        indexController.saveIndex(esIndexVO,indexDefVOS);
+
 
         indexTableBO.getIndexList().add(esIndexVO);
         int row = indexTableBO.getIndexSize()- 1;

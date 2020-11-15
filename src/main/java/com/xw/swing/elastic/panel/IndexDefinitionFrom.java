@@ -8,6 +8,7 @@ import java.awt.*;
 import javax.swing.*;
 import com.jgoodies.forms.factories.*;
 import com.xw.swing.elastic.domain.entity.TempIndexDefinitionEntity;
+import com.xw.swing.elastic.domain.vo.IndexDefVO;
 import org.jdesktop.beansbinding.*;
 import org.jdesktop.beansbinding.AutoBinding.UpdateStrategy;
 
@@ -15,19 +16,19 @@ import org.jdesktop.beansbinding.AutoBinding.UpdateStrategy;
  * @author Brainrain
  */
 public class IndexDefinitionFrom extends JPanel {
-    private TempIndexDefinitionEntity indexDef;
+    private IndexDefVO indexDef;
 
     public IndexDefinitionFrom() {
         initComponents();
     }
 
 
-    public TempIndexDefinitionEntity getIndexDef() {
+    public IndexDefVO getIndexDef() {
         return indexDef;
     }
 
-    public void setIndexDef(TempIndexDefinitionEntity indexDef) {
-        TempIndexDefinitionEntity old = this.indexDef;
+    public void setIndexDef(IndexDefVO indexDef) {
+        IndexDefVO old = this.indexDef;
         this.indexDef = indexDef;
         firePropertyChange("indexDef", old, indexDef);
 
@@ -35,6 +36,7 @@ public class IndexDefinitionFrom extends JPanel {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
+        // Generated using JFormDesigner Evaluation license - unknown
         DefaultComponentFactory compFactory = DefaultComponentFactory.getInstance();
         panel3 = new JPanel();
         separator1 = compFactory.createSeparator("  \u6620\u5c04");
@@ -57,6 +59,12 @@ public class IndexDefinitionFrom extends JPanel {
         textField5 = new JTextField();
 
         //======== this ========
+        setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border.
+        EmptyBorder(0,0,0,0), "JFor\u006dDesi\u0067ner \u0045valu\u0061tion",javax.swing.border.TitledBorder.CENTER,javax.swing
+        .border.TitledBorder.BOTTOM,new java.awt.Font("Dia\u006cog",java.awt.Font.BOLD,12),
+        java.awt.Color.red), getBorder())); addPropertyChangeListener(new java.beans.PropertyChangeListener()
+        {@Override public void propertyChange(java.beans.PropertyChangeEvent e){if("bord\u0065r".equals(e.getPropertyName()))
+        throw new RuntimeException();}});
         setLayout(new BorderLayout());
 
         //======== panel3 ========
@@ -171,7 +179,7 @@ public class IndexDefinitionFrom extends JPanel {
         //---- bindings ----
         bindingGroup = new BindingGroup();
         bindingGroup.addBinding(Bindings.createAutoBinding(UpdateStrategy.READ_WRITE,
-            this, BeanProperty.create("indexDef.fieldName"),
+            this, BeanProperty.create("indexDef.name"),
             textField1, BeanProperty.create("text")));
         bindingGroup.addBinding(Bindings.createAutoBinding(UpdateStrategy.READ_WRITE,
             this, BeanProperty.create("indexDef.pid"),
@@ -196,6 +204,7 @@ public class IndexDefinitionFrom extends JPanel {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
+    // Generated using JFormDesigner Evaluation license - unknown
     private JPanel panel3;
     private JComponent separator1;
     private JLabel label10;

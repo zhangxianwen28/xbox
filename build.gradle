@@ -39,13 +39,14 @@ dependencies {
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis', version: '2.3.1.RELEASE'
     //implementation 'org.apache.rocketmq:rocketmq-spring-boot-starter:2.0.3'
     implementation 'com.baomidou:mybatis-plus-boot-starter:3.3.1'
-    implementation 'com.oracle:ojdbc14:10.2.0.4.0'
+    //implementation 'com.oracle:ojdbc14:10.2.0.4.0'
     implementation 'com.google.guava:guava:27.0.1-jre'
     implementation 'com.baomidou:mybatis-plus-generator:3.3.1'
     implementation 'org.freemarker:freemarker:2.3.28'
     implementation 'com.alibaba:easyexcel:2.2.6'
     //implementation 'org.hibernate:hibernate-core:5.4.4.Final'
     implementation "com.h2database:h2:1.4.196"
+    implementation 'mysql:mysql-connector-java:8.0.11'
     // 中文支持
     implementation 'com.hankcs:hanlp:portable-1.7.4'
     // html解析

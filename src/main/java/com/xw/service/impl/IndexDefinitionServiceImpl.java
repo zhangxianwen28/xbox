@@ -23,6 +23,11 @@ public class IndexDefinitionServiceImpl implements IndexDefinitionService {
     public void save(TempIndexDefinitionEntity tempIndexDefinitionEntity) {
         indexDefinitionRepository.save(tempIndexDefinitionEntity);
     }
+
+    @Override
+    public void saveAll(List<TempIndexDefinitionEntity> entityList) {
+        indexDefinitionRepository.saveAll(entityList);
+    }
     @Override
     public TempIndexDefinitionEntity getById(String id) {
         return indexDefinitionRepository.findById(id).orElse(null);
