@@ -11,6 +11,7 @@ import com.xw.swing.elastic.domain.entity.TempIndexDefinitionEntity;
 import com.xw.swing.elastic.domain.vo.EsIndexVO;
 import com.xw.swing.elastic.domain.vo.IndexDefVO;
 import com.xw.util.learn.tree.Tree;
+import com.xw.util.other.IDGenerator;
 import org.jdesktop.beansbinding.AutoBinding.UpdateStrategy;
 import org.jdesktop.beansbinding.BeanProperty;
 import org.jdesktop.beansbinding.BindingGroup;
@@ -55,16 +56,24 @@ public class IndexDefinitionPanel extends JPanel {
      * @param e
      */
     public void addChildNode(ActionEvent e) {
-        DefaultMutableTreeNode note = (DefaultMutableTreeNode) tree1.getLastSelectedPathComponent();
-        Object userObject = note.getUserObject();
-        if(userObject instanceof IndexDefVO){
-            userObject = (IndexDefVO)userObject;
-        }
         IndexDefinitionFrom definitionFrom = new IndexDefinitionFrom();
         IndexDefVO indexDef = new IndexDefVO();
-        //indexDef.setPid();
-        definitionFrom.setIndexDef(indexDef);
+        indexDef.setId(String.valueOf(IDGenerator.getId()));
 
+        DefaultMutableTreeNode note = (DefaultMutableTreeNode) tree1.getLastSelectedPathComponent();
+        Object userObject = note.getUserObject();
+        if (userObject instanceof IndexDefVO) {
+            IndexDefVO indexDefVO = (IndexDefVO) userObject;
+            if (!("object".equals(indexDefVO.getFieldType()) || "multi-fields".equals(indexDefVO.getFieldType()))) {
+                JOptionPane.showMessageDialog(null, "父节点非对象或多字段属性，不能增加子节点");
+                return;
+            }
+            indexDef.setPid(indexDefVO.getId());
+        } else {
+            indexDef.setPid("0");
+        }
+
+        definitionFrom.setIndexDef(indexDef);
 
         JOptionPane optionPane = new JOptionPane(definitionFrom, JOptionPane.PLAIN_MESSAGE, JOptionPane.OK_CANCEL_OPTION);
         JDialog dialog = optionPane.createDialog(this, "新增");
@@ -74,7 +83,8 @@ public class IndexDefinitionPanel extends JPanel {
         if (!new Integer(JOptionPane.OK_OPTION).equals(optionPane.getValue())) {
             return;
         }
-        addObject(note, definitionFrom.getIndexDef(), true);
+        IndexDefVO indexDef1 = definitionFrom.getIndexDef();
+        addObject(note, indexDef1, true);
     }
 
     public DefaultMutableTreeNode addObject(DefaultMutableTreeNode parent, Object child, boolean shouldBeVisible) {
@@ -88,13 +98,18 @@ public class IndexDefinitionPanel extends JPanel {
 
     private void tree1MouseClicked(MouseEvent e) {
         DefaultMutableTreeNode note = (DefaultMutableTreeNode) tree1.getLastSelectedPathComponent();
-        if (note.getUserObject() instanceof IndexDefVO) {
-            IndexDefVO indexDefVO = (IndexDefVO) note.getUserObject();
+        if (note == null) {
+            return;
+        }
+        Object userObject = note.getUserObject();
+        if (userObject instanceof IndexDefVO) {
+            IndexDefVO indexDefVO = (IndexDefVO) userObject;
             // 展示
             this.details.clear();
             this.details.add("名称: " + indexDefVO.getFieldName());
             this.details.add("字段说明: " + indexDefVO.getFieldComment());
             this.details.add("字段类型: " + indexDefVO.getFieldType());
+            this.details.add("父节点: " + indexDefVO.getPid());
         }
     }
 
@@ -156,15 +171,22 @@ public class IndexDefinitionPanel extends JPanel {
     public List<IndexDefVO> getTreeModelUserObject() {
         java.util.List<IndexDefVO> list = new ArrayList<>();
         DefaultMutableTreeNode node = (DefaultMutableTreeNode) treeModel.getRoot();
-        Enumeration<DefaultMutableTreeNode> children = node.children();
+        getChildren(list, node.children());
+        return list;
+    }
+
+    private void getChildren(java.util.List<IndexDefVO> list, Enumeration<DefaultMutableTreeNode> children) {
+        if (children == null) {
+            return;
+        }
         while (children.hasMoreElements()) {
             DefaultMutableTreeNode defaultMutableTreeNode = children.nextElement();
             Object userObject = defaultMutableTreeNode.getUserObject();
             if (userObject instanceof IndexDefVO) {
                 list.add((IndexDefVO) userObject);
             }
+            getChildren(list, defaultMutableTreeNode.children());
         }
-        return list;
     }
 
     public DefaultTreeModel getTreeModel() {
@@ -180,7 +202,6 @@ public class IndexDefinitionPanel extends JPanel {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - unknown
         DefaultComponentFactory compFactory = DefaultComponentFactory.getInstance();
         panel2 = new JPanel();
         separator2 = compFactory.createSeparator("  \u57fa\u672c\u4fe1\u606f");
@@ -203,68 +224,54 @@ public class IndexDefinitionPanel extends JPanel {
         menuItem4 = new JMenuItem();
 
         //======== this ========
-        setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(
-                new javax.swing.border.EmptyBorder(0, 0, 0, 0), "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn"
-                , javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BOTTOM
-                , new java.awt.Font("Dia\u006cog", java.awt.Font.BOLD, 12)
-                , java.awt.Color.red), getBorder()));
-        addPropertyChangeListener(
-                new java.beans.PropertyChangeListener() {
-                    @Override
-                    public void propertyChange(java.beans.PropertyChangeEvent e
-                    ) {
-                        if ("\u0062ord\u0065r".equals(e.getPropertyName())) throw new RuntimeException()
-                                ;
-                    }
-                });
         setLayout(new BorderLayout());
 
         //======== panel2 ========
         {
             panel2.setLayout(new GridBagLayout());
-            ((GridBagLayout) panel2.getLayout()).columnWidths = new int[]{89, 138, 74, 185, 0, 0};
-            ((GridBagLayout) panel2.getLayout()).rowHeights = new int[]{0, 0, 0, 0, 0};
-            ((GridBagLayout) panel2.getLayout()).columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
-            ((GridBagLayout) panel2.getLayout()).rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 1.0E-4};
+            ((GridBagLayout)panel2.getLayout()).columnWidths = new int[] {89, 138, 74, 185, 0, 0};
+            ((GridBagLayout)panel2.getLayout()).rowHeights = new int[] {0, 0, 0, 0, 0};
+            ((GridBagLayout)panel2.getLayout()).columnWeights = new double[] {0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
+            ((GridBagLayout)panel2.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 1.0E-4};
             panel2.add(separator2, new GridBagConstraints(0, 0, 4, 1, 0.0, 0.0,
-                    GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                    new Insets(0, 0, 5, 5), 0, 0));
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 5, 5), 0, 0));
 
             //---- label7 ----
             label7.setText("\u540d\u79f0\uff1a");
             panel2.add(label7, new GridBagConstraints(0, 1, 1, 1, 0.0, 0.0,
-                    GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
-                    new Insets(0, 0, 5, 5), 0, 0));
+                GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
+                new Insets(0, 0, 5, 5), 0, 0));
             panel2.add(textField7, new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0,
-                    GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                    new Insets(0, 0, 5, 5), 0, 0));
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 5, 5), 0, 0));
 
             //---- label12 ----
             label12.setText("\u522b\u540d\uff1a");
             panel2.add(label12, new GridBagConstraints(2, 1, 1, 1, 0.0, 0.0,
-                    GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
-                    new Insets(0, 0, 5, 5), 0, 0));
+                GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
+                new Insets(0, 0, 5, 5), 0, 0));
             panel2.add(textField2, new GridBagConstraints(3, 1, 1, 1, 0.0, 0.0,
-                    GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                    new Insets(0, 0, 5, 5), 0, 0));
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 5, 5), 0, 0));
 
             //---- label8 ----
             label8.setText("\u72b6\u6001\uff1a");
             panel2.add(label8, new GridBagConstraints(0, 2, 1, 1, 0.0, 0.0,
-                    GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
-                    new Insets(0, 0, 5, 5), 0, 0));
+                GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
+                new Insets(0, 0, 5, 5), 0, 0));
             panel2.add(textField8, new GridBagConstraints(1, 2, 1, 1, 0.0, 0.0,
-                    GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                    new Insets(0, 0, 5, 5), 0, 0));
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 5, 5), 0, 0));
             panel2.add(label13, new GridBagConstraints(2, 2, 1, 1, 0.0, 0.0,
-                    GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
-                    new Insets(0, 0, 5, 5), 0, 0));
+                GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
+                new Insets(0, 0, 5, 5), 0, 0));
 
             //---- textField6 ----
             textField6.setVisible(false);
             panel2.add(textField6, new GridBagConstraints(3, 2, 1, 1, 0.0, 0.0,
-                    GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                    new Insets(0, 0, 5, 5), 0, 0));
+                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                new Insets(0, 0, 5, 5), 0, 0));
         }
         add(panel2, BorderLayout.NORTH);
 
@@ -316,30 +323,29 @@ public class IndexDefinitionPanel extends JPanel {
         //---- bindings ----
         bindingGroup = new BindingGroup();
         bindingGroup.addBinding(Bindings.createAutoBinding(UpdateStrategy.READ_WRITE,
-                this, BeanProperty.create("treeModel"),
-                tree1, BeanProperty.create("model")));
+            this, BeanProperty.create("treeModel"),
+            tree1, BeanProperty.create("model")));
         bindingGroup.addBinding(SwingBindings.createJListBinding(UpdateStrategy.READ_WRITE,
-                this, (BeanProperty) BeanProperty.create("details"), list1));
+            this, (BeanProperty) BeanProperty.create("details"), list1));
         bindingGroup.bind();
         baseInfoGroup = new BindingGroup();
         baseInfoGroup.addBinding(Bindings.createAutoBinding(UpdateStrategy.READ_WRITE,
-                this, BeanProperty.create("esIndexFrom.indexName"),
-                textField7, BeanProperty.create("text")));
+            this, BeanProperty.create("esIndexFrom.indexName"),
+            textField7, BeanProperty.create("text")));
         baseInfoGroup.addBinding(Bindings.createAutoBinding(UpdateStrategy.READ_WRITE,
-                this, BeanProperty.create("esIndexFrom.indexAlia"),
-                textField2, BeanProperty.create("text")));
+            this, BeanProperty.create("esIndexFrom.indexAlia"),
+            textField2, BeanProperty.create("text")));
         baseInfoGroup.addBinding(Bindings.createAutoBinding(UpdateStrategy.READ_WRITE,
-                this, BeanProperty.create("esIndexFrom.status"),
-                textField8, BeanProperty.create("text")));
+            this, BeanProperty.create("esIndexFrom.status"),
+            textField8, BeanProperty.create("text")));
         baseInfoGroup.addBinding(Bindings.createAutoBinding(UpdateStrategy.READ_WRITE,
-                this, BeanProperty.create("esIndexFrom.id"),
-                textField6, BeanProperty.create("text")));
+            this, BeanProperty.create("esIndexFrom.id"),
+            textField6, BeanProperty.create("text")));
         baseInfoGroup.bind();
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - unknown
     private JPanel panel2;
     private JComponent separator2;
     private JLabel label7;

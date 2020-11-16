@@ -8,6 +8,7 @@ import com.xw.swing.elastic.domain.entity.TempIndexEntity;
 import com.xw.swing.elastic.domain.vo.EsIndexVO;
 import com.xw.swing.elastic.domain.vo.IndexDefVO;
 import com.xw.util.SpringContextUtil;
+import com.xw.util.learn.tree.Tree;
 import com.xw.util.other.IDGenerator;
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Page;
@@ -28,14 +29,13 @@ public class IndexController {
         return pageWrapper;
     }
 
-    public void saveIndex(EsIndexVO esIndexVO,List<IndexDefVO> vos) {
+    public void saveIndex(EsIndexVO esIndexVO, List<IndexDefVO> vos) {
         TempIndexEntity tempIndexEntity = transformEntity(esIndexVO);
         IndexServiceImpl bean = SpringContextUtil.getBean(IndexServiceImpl.class);
         bean.save(tempIndexEntity);
         if (vos != null && !vos.isEmpty()) {
             List<TempIndexDefinitionEntity> entityList = new ArrayList<>();
             for (IndexDefVO vo : vos) {
-                vo.setId(String.valueOf(IDGenerator.getId()));
                 vo.setIndexId(esIndexVO.getId());
                 TempIndexDefinitionEntity definitionEntity = new TempIndexDefinitionEntity();
                 BeanUtils.copyProperties(vo, definitionEntity);
@@ -47,7 +47,28 @@ public class IndexController {
 
     }
 
+    public List<IndexDefVO> getIndexDefByIndexId(String indexId) {
+        IndexDefinitionServiceImpl bean2 = SpringContextUtil.getBean(IndexDefinitionServiceImpl.class);
+        List<TempIndexDefinitionEntity> tempIndexDefinitionEntities = bean2.findByIndexId(indexId);
+        List<IndexDefVO> indexDefVOS = new ArrayList<>();
+        for (TempIndexDefinitionEntity tempIndexDefinitionEntity : tempIndexDefinitionEntities) {
+            IndexDefVO indexDefVO = new IndexDefVO();
+            BeanUtils.copyProperties(tempIndexDefinitionEntity, indexDefVO);
+            indexDefVOS.add(indexDefVO);
+        }
+        return indexDefVOS;
+    }
 
+    public List<Tree<IndexDefVO>> getIndexDefVOTree(String indexId) {
+        List<IndexDefVO> indexDefByIndexId = getIndexDefByIndexId(indexId);
+        return Tree.buildTree(indexDefByIndexId.stream().map(x -> {
+            Tree<IndexDefVO> t = new Tree<>();
+            t.setData(x);
+            t.setId(x.getId());
+            t.setPid(x.getPid());
+            return t;
+        }).collect(Collectors.toList()));
+    }
 
     private List<EsIndexVO> transformVO(Page<TempIndexEntity> page) {
         return page.map(x -> {

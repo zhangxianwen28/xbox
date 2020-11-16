@@ -15,14 +15,14 @@ spring:
     #url: jdbc:h2:file:~/.h2/db/box
     #username: sa
     #password:
-    #driver-class-name: oracle.jdbc.driver.OracleDriver
-    #url: jdbc:oracle:thin:@10.10.16.36:1521:orcl
-    #username: crdms_publish
-    #password: crdms_publish
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/myxy?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
-    username: root
-    password: 123
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@10.10.16.36:1521:orcl
+    username: crdms_publish
+    password: crdms_publish
+    #driver-class-name: com.mysql.cj.jdbc.Driver
+    #url: jdbc:mysql://127.0.0.1:3306/myxy?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    #username: root
+    #password: 123
     hikari:
       auto-commit: true
       connection-timeout: 20000

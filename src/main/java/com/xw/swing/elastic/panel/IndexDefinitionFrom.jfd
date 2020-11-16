@@ -64,7 +64,7 @@ new FormModel {
 				} )
 				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "label2"
-					"text": "类型："
+					"text": "字段类型："
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 					"gridy": 3
 				} )
@@ -76,13 +76,8 @@ new FormModel {
 						addElement( "keyword" )
 						addElement( "mumeric" )
 						addElement( "date" )
-						addElement( "datenanoseconde" )
 						addElement( "boolean" )
-						addElement( "binary" )
-						addElement( "range" )
 						addElement( "object" )
-						addElement( "nested" )
-						addElement( "array" )
 						addElement( "multi-fields" )
 					}
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
@@ -114,19 +109,6 @@ new FormModel {
 					"gridy": 5
 				} )
 				add( new FormComponent( "javax.swing.JLabel" ) {
-					name: "label9"
-					"text": "领域："
-				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-					"gridx": 2
-					"gridy": 5
-				} )
-				add( new FormComponent( "javax.swing.JTextField" ) {
-					name: "textField9"
-				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-					"gridx": 3
-					"gridy": 5
-				} )
-				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "label5"
 					"text": " 最大长度："
 				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
@@ -143,7 +125,7 @@ new FormModel {
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )
-			"size": new java.awt.Dimension( 400, 240 )
+			"size": new java.awt.Dimension( 425, 250 )
 		} )
 		addBindingGroup( new FormBindingGroup( class org.jdesktop.beansbinding.BindingGroup ) {
 			"name": "bindingGroup"
@@ -153,7 +135,6 @@ new FormModel {
 			addBinding( new FormBinding( "this", "indexDef.fieldType", "comboBox1", "selectedItem" ) )
 			addBinding( new FormBinding( "this", "indexDef.analyzer", "textField3", "text" ) )
 			addBinding( new FormBinding( "this", "indexDef.copyto", "textField4", "text" ) )
-			addBinding( new FormBinding( "this", "indexDef.isFields", "textField9", "text" ) )
 		} )
 	}
 }

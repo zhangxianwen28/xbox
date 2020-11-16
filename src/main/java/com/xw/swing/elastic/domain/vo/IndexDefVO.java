@@ -18,7 +18,7 @@ public class IndexDefVO extends AbstractModelObject {
     // 字段名称
     private String fieldName;
     // 字段类型
-    private DocType fieldType;
+    private String fieldType;
     // 字段注释
     private String fieldComment;
     // 复制到
@@ -47,8 +47,8 @@ public class IndexDefVO extends AbstractModelObject {
         changeSupport.firePropertyChange("fieldName", oldDocName, fieldName);
     }
 
-    public void setDocType(DocType fieldType) {
-        DocType oldDocType = this.fieldType;
+    public void setDocType(String fieldType) {
+        String oldDocType = this.fieldType;
         this.fieldType = fieldType;
         changeSupport.firePropertyChange("fieldType", oldDocType, fieldType);
     }
@@ -77,7 +77,7 @@ public class IndexDefVO extends AbstractModelObject {
         this.fieldName = fieldName;
     }
 
-    public void setFieldType(DocType fieldType) {
+    public void setFieldType(String fieldType) {
         this.fieldType = fieldType;
     }
 
@@ -98,7 +98,7 @@ public class IndexDefVO extends AbstractModelObject {
         return fieldName;
     }
 
-    public DocType getFieldType() {
+    public String getFieldType() {
         return fieldType;
     }
 
@@ -132,6 +132,10 @@ public class IndexDefVO extends AbstractModelObject {
         changeSupport.firePropertyChange("isFields", oldFields, fields);
     }
 
+
+    public boolean isLeaf(){
+        return !("object".equals(this.getFieldType()) || "multi-fields".equals(this.getFieldType()));
+    }
     @Override
     public String toString() {
         return this.fieldName;

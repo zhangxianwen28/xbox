@@ -13,9 +13,4 @@ public class EsIndexVO extends AbstractModelObject {
     private  String indexAlia;
     private  String status;
 
-/*    private JSONPObject settings;
-    private JSONPObject mappings;*/
-
-
-
 }

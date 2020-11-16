@@ -6,12 +6,19 @@ package com.xw.swing.elastic.panel;
 
 import java.awt.event.*;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.xw.controller.IndexController;
 import com.xw.swing.education.domain.dto.PageWrapper;
+import com.xw.swing.elastic.domain.EsProperties;
+import com.xw.swing.elastic.domain.EsType;
 import com.xw.swing.elastic.domain.bo.IndexTableBO;
 import com.xw.swing.elastic.domain.vo.EsIndexVO;
 import com.xw.swing.elastic.domain.vo.IndexDefVO;
-import com.xw.util.other.IDGenerator;
+import com.xw.util.JsonUtil;
+import com.xw.util.learn.tree.Tree;
 import org.jdesktop.beansbinding.AutoBinding.UpdateStrategy;
 import org.jdesktop.beansbinding.BeanProperty;
 import org.jdesktop.beansbinding.BindingGroup;
@@ -21,14 +28,17 @@ import org.jdesktop.swingbinding.SwingBindings;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
+import javax.swing.tree.DefaultMutableTreeNode;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @author Brainrain
  */
 public class IndexTablePanel extends JPanel {
-    private IndexTableBO indexTableBO = IndexTableBO.create();;
+    private IndexTableBO indexTableBO = IndexTableBO.create();
+    private  String jsonView;
     private final IndexController indexController = new IndexController();
 
     public IndexTablePanel() {
@@ -39,7 +49,7 @@ public class IndexTablePanel extends JPanel {
 
     }
 
-    public void initModel(){
+    public void initModel() {
         EsIndexVO esIndexQuery = indexTableBO.getIndexQuery();
         PageWrapper<EsIndexVO> esIndexPage = indexController.getEsIndexPage(esIndexQuery, indexTableBO.getPage(), indexTableBO.getSize());
         indexTableBO.getIndexList().clear();
@@ -56,23 +66,65 @@ public class IndexTablePanel extends JPanel {
         dialog.setVisible(true);
 
         if (!new Integer(JOptionPane.OK_OPTION).equals(optionPane.getValue())) {
-            return ;
+            return;
         }
 
         EsIndexVO esIndexVO = indexPanel.getEsIndexFrom();
 
         List<IndexDefVO> indexDefVOS = indexPanel.getTreeModelUserObject();
-        indexController.saveIndex(esIndexVO,indexDefVOS);
-
+        indexController.saveIndex(esIndexVO, indexDefVOS);
 
         indexTableBO.getIndexList().add(esIndexVO);
-        int row = indexTableBO.getIndexSize()- 1;
+        int row = indexTableBO.getIndexSize() - 1;
         this.table1.setRowSelectionInterval(row, row);
         this.table1.scrollRectToVisible(this.table1.getCellRect(row, 0, true));
     }
 
+    private void printJson(ActionEvent e) {
+        Object id = this.table1.getValueAt(this.table1.getSelectedRow(), 0);
+        if (id == null) {
+            return;
+        }
 
 
+        JSONArray jsonObjectList = new JSONArray();
+        List<Tree<IndexDefVO>> indexDefVOTree = indexController.getIndexDefVOTree(String.valueOf(id));
+        for (Tree<IndexDefVO> defVOTree : indexDefVOTree) {
+            if (defVOTree.isTopNode()) {
+                IndexDefVO data = defVOTree.getData();
+                if (data.isLeaf()) {
+                    jsonObjectList.add(JsonUtil.createEsType(data.getFieldName(), data.getFieldType()));
+                } else {
+                    List<JSONObject> child = new ArrayList<>();
+                    buildChildNode(defVOTree, child);
+                    jsonObjectList.add(JsonUtil.createEsProperties(data.getFieldName(),child));
+                }
+            }
+        }
+        String str = JSON.toJSONString(jsonObjectList, SerializerFeature.PrettyFormat);
+        System.err.println(str);
+        String newstr = str.replaceAll("\t", "    ").replaceAll("\\[", "{").replaceAll("]", "}");
+        setJsonView(newstr);
+        JOptionPane optionPane = new JOptionPane(panel5, JOptionPane.PLAIN_MESSAGE);
+        JDialog dialog = optionPane.createDialog(this, "视图");
+        dialog.setResizable(true);
+        dialog.setVisible(true);
+
+        if (!new Integer(JOptionPane.OK_OPTION).equals(optionPane.getValue())) {
+            return;
+        }
+    }
+
+    private void buildChildNode(Tree<IndexDefVO> tree, List<JSONObject> treeNode) {
+        if (!tree.isHasChild()) {
+            return;
+        }
+        for (Tree<IndexDefVO> childNode : tree.getChildNodes()) {
+            IndexDefVO data = childNode.getData();
+            treeNode.add(JsonUtil.createEsType(data.getFieldName(), data.getFieldType()));
+            buildChildNode(childNode, treeNode);
+        }
+    }
 
     // **************************************GET SET**********************************************
     public IndexTableBO getIndexTableBO() {
@@ -83,7 +135,16 @@ public class IndexTablePanel extends JPanel {
         this.indexTableBO = indexTableBO;
     }
 
+    public String getJsonView() {
+        return jsonView;
+    }
 
+    public void setJsonView(String jsonView) {
+        String old = this.jsonView;
+        this.jsonView = jsonView;
+        firePropertyChange("jsonView", old, jsonView);
+    }
+    //**************************************GET SET END**********************************************
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
@@ -95,6 +156,7 @@ public class IndexTablePanel extends JPanel {
         panel2 = new JPanel();
         button1 = new JButton();
         button9 = new JButton();
+        button2 = new JButton();
         panel1 = new JPanel();
         label1 = new JLabel();
         label3 = new JLabel();
@@ -107,6 +169,9 @@ public class IndexTablePanel extends JPanel {
         menuItem3 = new JMenuItem();
         menuItem1 = new JMenuItem();
         menuItem2 = new JMenuItem();
+        panel5 = new JPanel();
+        scrollPane1 = new JScrollPane();
+        textPane1 = new JTextPane();
 
         //======== this ========
         setLayout(new BorderLayout());
@@ -150,6 +215,13 @@ public class IndexTablePanel extends JPanel {
                     panel2.add(button9, new GridBagConstraints(0, 2, 1, 1, 0.0, 0.0,
                         GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                         new Insets(0, 0, 5, 0), 0, 0));
+
+                    //---- button2 ----
+                    button2.setText("\u6253\u5370");
+                    button2.addActionListener(e -> printJson(e));
+                    panel2.add(button2, new GridBagConstraints(0, 3, 1, 1, 0.0, 0.0,
+                        GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+                        new Insets(0, 0, 0, 0), 0, 0));
                 }
                 panel3.add(panel2, BorderLayout.EAST);
 
@@ -214,6 +286,20 @@ public class IndexTablePanel extends JPanel {
             popupMenu1.add(menuItem2);
         }
 
+        //======== panel5 ========
+        {
+            panel5.setLayout(new BorderLayout());
+
+            //======== scrollPane1 ========
+            {
+
+                //---- textPane1 ----
+                textPane1.setEditable(false);
+                scrollPane1.setViewportView(textPane1);
+            }
+            panel5.add(scrollPane1, BorderLayout.CENTER);
+        }
+
         //---- bindings ----
         bindingGroup = new BindingGroup();
         bindingGroup.addBinding(Bindings.createAutoBinding(UpdateStrategy.READ_WRITE,
@@ -225,6 +311,7 @@ public class IndexTablePanel extends JPanel {
         {
             JTableBinding binding = SwingBindings.createJTableBinding(UpdateStrategy.READ_WRITE,
                 this, (BeanProperty) BeanProperty.create("indexTableBO.indexList"), table1);
+            binding.setEditable(false);
             binding.addColumnBinding(BeanProperty.create("id"))
                 .setColumnName("Id")
                 .setColumnClass(String.class);
@@ -239,6 +326,9 @@ public class IndexTablePanel extends JPanel {
                 .setColumnClass(String.class);
             bindingGroup.addBinding(binding);
         }
+        bindingGroup.addBinding(Bindings.createAutoBinding(UpdateStrategy.READ_WRITE,
+            this, BeanProperty.create("jsonView"),
+            textPane1, BeanProperty.create("text")));
         bindingGroup.bind();
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
@@ -253,6 +343,7 @@ public class IndexTablePanel extends JPanel {
     private JPanel panel2;
     private JButton button1;
     private JButton button9;
+    private JButton button2;
     private JPanel panel1;
     private JLabel label1;
     private JLabel label3;
@@ -265,29 +356,9 @@ public class IndexTablePanel extends JPanel {
     private JMenuItem menuItem3;
     private JMenuItem menuItem1;
     private JMenuItem menuItem2;
+    private JPanel panel5;
+    private JScrollPane scrollPane1;
+    private JTextPane textPane1;
     private BindingGroup bindingGroup;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
-
-    private class IndexPanel extends JPanel {
-        private EsIndexVO indexFrom ;
-        private IndexPanel() {
-            initComponents();
-        }
-
-        private void initComponents() {
-            // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-            // JFormDesigner - End of component initialization  //GEN-END:initComponents
-        }
-
-        public EsIndexVO getIndexFrom() {
-            return indexFrom;
-        }
-
-        public void setIndexFrom(EsIndexVO indexFrom) {
-            this.indexFrom = indexFrom;
-        }
-
-        // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-        // JFormDesigner - End of variables declaration  //GEN-END:variables
-    }
 }

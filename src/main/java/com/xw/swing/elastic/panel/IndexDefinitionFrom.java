@@ -36,7 +36,6 @@ public class IndexDefinitionFrom extends JPanel {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - unknown
         DefaultComponentFactory compFactory = DefaultComponentFactory.getInstance();
         panel3 = new JPanel();
         separator1 = compFactory.createSeparator("  \u6620\u5c04");
@@ -53,18 +52,10 @@ public class IndexDefinitionFrom extends JPanel {
         textField3 = new JTextField();
         label4 = new JLabel();
         textField4 = new JTextField();
-        label9 = new JLabel();
-        textField9 = new JTextField();
         label5 = new JLabel();
         textField5 = new JTextField();
 
         //======== this ========
-        setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border.
-        EmptyBorder(0,0,0,0), "JFor\u006dDesi\u0067ner \u0045valu\u0061tion",javax.swing.border.TitledBorder.CENTER,javax.swing
-        .border.TitledBorder.BOTTOM,new java.awt.Font("Dia\u006cog",java.awt.Font.BOLD,12),
-        java.awt.Color.red), getBorder())); addPropertyChangeListener(new java.beans.PropertyChangeListener()
-        {@Override public void propertyChange(java.beans.PropertyChangeEvent e){if("bord\u0065r".equals(e.getPropertyName()))
-        throw new RuntimeException();}});
         setLayout(new BorderLayout());
 
         //======== panel3 ========
@@ -114,7 +105,7 @@ public class IndexDefinitionFrom extends JPanel {
                 new Insets(0, 0, 5, 0), 0, 0));
 
             //---- label2 ----
-            label2.setText("\u7c7b\u578b\uff1a");
+            label2.setText("\u5b57\u6bb5\u7c7b\u578b\uff1a");
             panel3.add(label2, new GridBagConstraints(0, 3, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
                 new Insets(0, 0, 5, 5), 0, 0));
@@ -125,13 +116,8 @@ public class IndexDefinitionFrom extends JPanel {
                 "keyword",
                 "mumeric",
                 "date",
-                "datenanoseconde",
                 "boolean",
-                "binary",
-                "range",
                 "object",
-                "nested",
-                "array",
                 "multi-fields"
             }));
             panel3.add(comboBox1, new GridBagConstraints(1, 3, 1, 1, 0.0, 0.0,
@@ -155,15 +141,6 @@ public class IndexDefinitionFrom extends JPanel {
             panel3.add(textField4, new GridBagConstraints(1, 5, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 5, 5), 0, 0));
-
-            //---- label9 ----
-            label9.setText("\u9886\u57df\uff1a");
-            panel3.add(label9, new GridBagConstraints(2, 5, 1, 1, 0.0, 0.0,
-                GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
-                new Insets(0, 0, 5, 5), 0, 0));
-            panel3.add(textField9, new GridBagConstraints(3, 5, 1, 1, 0.0, 0.0,
-                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 0, 5, 0), 0, 0));
 
             //---- label5 ----
             label5.setText(" \u6700\u5927\u957f\u5ea6\uff1a");
@@ -196,15 +173,11 @@ public class IndexDefinitionFrom extends JPanel {
         bindingGroup.addBinding(Bindings.createAutoBinding(UpdateStrategy.READ_WRITE,
             this, BeanProperty.create("indexDef.copyto"),
             textField4, BeanProperty.create("text")));
-        bindingGroup.addBinding(Bindings.createAutoBinding(UpdateStrategy.READ_WRITE,
-            this, BeanProperty.create("indexDef.isFields"),
-            textField9, BeanProperty.create("text")));
         bindingGroup.bind();
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - unknown
     private JPanel panel3;
     private JComponent separator1;
     private JLabel label10;
@@ -220,8 +193,6 @@ public class IndexDefinitionFrom extends JPanel {
     private JTextField textField3;
     private JLabel label4;
     private JTextField textField4;
-    private JLabel label9;
-    private JTextField textField9;
     private JLabel label5;
     private JTextField textField5;
     private BindingGroup bindingGroup;
