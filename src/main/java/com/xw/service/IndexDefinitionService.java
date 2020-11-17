@@ -13,4 +13,8 @@ public interface IndexDefinitionService {
     void saveAll(List<TempIndexDefinitionEntity> entityList);
 
     TempIndexDefinitionEntity getById(String id);
+
+
+
+    void removeByIndexId(String id);
 }

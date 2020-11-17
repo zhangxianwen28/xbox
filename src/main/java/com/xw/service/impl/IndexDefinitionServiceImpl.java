@@ -5,6 +5,7 @@ import com.xw.service.IndexDefinitionService;
 import com.xw.swing.elastic.domain.entity.TempIndexDefinitionEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -31,6 +32,12 @@ public class IndexDefinitionServiceImpl implements IndexDefinitionService {
     @Override
     public TempIndexDefinitionEntity getById(String id) {
         return indexDefinitionRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    @Transactional
+    public void removeByIndexId(String id) {
+        indexDefinitionRepository.removeByIndexId(id);
     }
 
 

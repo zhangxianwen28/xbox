@@ -10,6 +10,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.criteria.Predicate;
 import java.util.ArrayList;
@@ -64,6 +65,7 @@ public class IndexServiceImpl implements IndexService {
     }
 
     @Override
+    @Transactional
     public void remove(String id) {
         indexRepository.deleteById(id);
     }

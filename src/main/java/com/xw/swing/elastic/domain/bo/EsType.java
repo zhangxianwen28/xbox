@@ -1,12 +1,21 @@
-package com.xw.swing.elastic.domain;
+package com.xw.swing.elastic.domain.bo;
 
-public class EsType {
+import java.io.Serializable;
+
+public class EsType  implements Serializable {
     private  String type;
     private  Boolean enabled;
+
+    public EsType() {
+    }
 
     public EsType(String type, Boolean enabled) {
         this.type = type;
         this.enabled = enabled;
+    }
+
+    public EsType(String type) {
+        this.type = type;
     }
 
     public Boolean getEnabled() {
@@ -25,5 +34,11 @@ public class EsType {
         this.type = type;
     }
 
-
+    @Override
+    public String toString() {
+        return "EsType{" +
+                "type='" + type + '\'' +
+                ", enabled=" + enabled +
+                '}';
+    }
 }

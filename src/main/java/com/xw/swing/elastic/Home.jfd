@@ -36,7 +36,7 @@ new FormModel {
 					"text": "管理"
 					add( new FormComponent( "javax.swing.JMenuItem" ) {
 						name: "menuItem7"
-						"text": "树"
+						"text": "环境设置"
 						"actionCommand": "card3"
 						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "menuItem7ActionPerformed", true ) )
 					} )

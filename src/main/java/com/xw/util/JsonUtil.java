@@ -1,7 +1,7 @@
 package com.xw.util;
 
 import com.alibaba.fastjson.JSONObject;
-import com.xw.swing.elastic.domain.EsType;
+import com.xw.swing.elastic.domain.bo.EsType;
 
 import java.util.List;
 

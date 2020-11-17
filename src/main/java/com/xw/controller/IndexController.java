@@ -11,13 +11,21 @@ import com.xw.util.SpringContextUtil;
 import com.xw.util.learn.tree.Tree;
 import com.xw.util.other.IDGenerator;
 import org.springframework.beans.BeanUtils;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.domain.Page;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class IndexController {
+
+    public EsIndexVO getEsIndexById(String id) {
+        IndexServiceImpl bean = SpringContextUtil.getBean(IndexServiceImpl.class);
+        TempIndexEntity result = bean.getById(id);
+        return transformVO(result);
+    }
 
     public PageWrapper<EsIndexVO> getEsIndexPage(EsIndexVO query, int page, int size) {
         IndexServiceImpl bean = SpringContextUtil.getBean(IndexServiceImpl.class);
@@ -29,7 +37,17 @@ public class IndexController {
         return pageWrapper;
     }
 
+
     public void saveIndex(EsIndexVO esIndexVO, List<IndexDefVO> vos) {
+        if (esIndexVO == null) {
+            return;
+        }
+
+        if (esIndexVO.getId() == null) {
+            esIndexVO.setId(String.valueOf(IDGenerator.getId()));
+        }
+        esIndexVO.setStatus("未发布");
+
         TempIndexEntity tempIndexEntity = transformEntity(esIndexVO);
         IndexServiceImpl bean = SpringContextUtil.getBean(IndexServiceImpl.class);
         bean.save(tempIndexEntity);
@@ -70,12 +88,24 @@ public class IndexController {
         }).collect(Collectors.toList()));
     }
 
+
+    public void removeIndex(String id) {
+        IndexServiceImpl bean = SpringContextUtil.getBean(IndexServiceImpl.class);
+        bean.remove(id);
+        IndexDefinitionServiceImpl bean2 = SpringContextUtil.getBean(IndexDefinitionServiceImpl.class);
+        bean2.removeByIndexId(id);
+
+    }
+
+
+    private EsIndexVO transformVO(TempIndexEntity entity) {
+        EsIndexVO esIndexVO = new EsIndexVO();
+        BeanUtils.copyProperties(entity, esIndexVO);
+        return esIndexVO;
+    }
+
     private List<EsIndexVO> transformVO(Page<TempIndexEntity> page) {
-        return page.map(x -> {
-            EsIndexVO esIndexVO = new EsIndexVO();
-            BeanUtils.copyProperties(x, esIndexVO);
-            return esIndexVO;
-        }).stream().collect(Collectors.toList());
+        return page.map(this::transformVO).stream().collect(Collectors.toList());
     }
 
     private TempIndexEntity transformEntity(EsIndexVO esIndexVO) {
@@ -83,8 +113,7 @@ public class IndexController {
             return null;
         }
         TempIndexEntity tempIndexEntity = new TempIndexEntity();
-        esIndexVO.setId(String.valueOf(IDGenerator.getId()));
-        esIndexVO.setStatus("未发布");
+
         BeanUtils.copyProperties(esIndexVO, tempIndexEntity);
         return tempIndexEntity;
     }

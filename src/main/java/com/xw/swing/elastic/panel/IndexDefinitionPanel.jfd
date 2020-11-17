@@ -5,97 +5,168 @@ new FormModel {
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
 			name: "this"
-			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
-				"$columnSpecs": "center:84, 133, center:69, 180, 0"
-				"$rowSpecs": "0, 0, 0, 0"
-				"$hGap": 5
-				"$vGap": 5
-				"$alignLeft": true
-				"$alignTop": true
-			} ) {
-				name: "panel2"
-				add( new FormComponent( "com.jformdesigner.designer.wrapper.JGoodiesFormsSeparator" ) {
-					name: "separator2"
-					"text": "  基本信息"
-				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-					"gridwidth": 4
-				} )
-				add( new FormComponent( "javax.swing.JLabel" ) {
-					name: "label7"
-					"text": "名称："
-				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-					"gridy": 1
-				} )
-				add( new FormComponent( "javax.swing.JTextField" ) {
-					name: "textField7"
-				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-					"gridx": 1
-					"gridy": 1
-				} )
-				add( new FormComponent( "javax.swing.JLabel" ) {
-					name: "label12"
-					"text": "别名："
-				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-					"gridx": 2
-					"gridy": 1
-				} )
-				add( new FormComponent( "javax.swing.JTextField" ) {
-					name: "textField2"
-				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-					"gridx": 3
-					"gridy": 1
-				} )
-				add( new FormComponent( "javax.swing.JLabel" ) {
-					name: "label8"
-					"text": "状态："
-				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-					"gridy": 2
-				} )
-				add( new FormComponent( "javax.swing.JTextField" ) {
-					name: "textField8"
-				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-					"gridx": 1
-					"gridy": 2
-				} )
-				add( new FormComponent( "javax.swing.JLabel" ) {
-					name: "label13"
-				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-					"gridx": 2
-					"gridy": 2
-				} )
-				add( new FormComponent( "javax.swing.JTextField" ) {
-					name: "textField6"
-					"visible": false
-				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-					"gridx": 3
-					"gridy": 2
-				} )
-			}, new FormLayoutConstraints( class java.lang.String ) {
-				"value": "North"
-			} )
-			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class javax.swing.BoxLayout ) ) {
-				name: "panel1"
-				add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
-					name: "scrollPane1"
-					add( new FormComponent( "javax.swing.JTree" ) {
-						name: "tree1"
-						"preferredSize": new java.awt.Dimension( 200, 82 )
-						"componentPopupMenu": new FormReference( "popupMenu1" )
-						addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "tree1MouseClicked", true ) )
+			add( new FormContainer( "javax.swing.JTabbedPane", new FormLayoutManager( class javax.swing.JTabbedPane ) ) {
+				name: "tabbedPane1"
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
+					"$columnSpecs": "center:84, 125, center:69, 125, 0"
+					"$rowSpecs": "0, 0, 0, 0, 0, 0, 0, 0, 0"
+					"$hGap": 5
+					"$vGap": 5
+					"$alignLeft": true
+					"$alignTop": true
+				} ) {
+					name: "panel2"
+					add( new FormComponent( "com.jformdesigner.designer.wrapper.JGoodiesFormsSeparator" ) {
+						name: "separator2"
+						"text": "信息"
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridwidth": 5
 					} )
-				} )
-				add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
-					name: "scrollPane2"
-					add( new FormComponent( "javax.swing.JList" ) {
-						name: "list1"
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label7"
+						"text": "名称："
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridy": 1
 					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "textField7"
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridx": 1
+						"gridy": 1
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label12"
+						"text": "别名："
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridx": 2
+						"gridy": 1
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "textField2"
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridx": 3
+						"gridy": 1
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label8"
+						"text": "状态："
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridy": 2
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "textField8"
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridx": 1
+						"gridy": 2
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label13"
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridx": 2
+						"gridy": 2
+					} )
+					add( new FormComponent( "javax.swing.JTextField" ) {
+						name: "textField6"
+						"visible": false
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridx": 3
+						"gridy": 2
+					} )
+					add( new FormComponent( "com.jformdesigner.designer.wrapper.JGoodiesFormsSeparator" ) {
+						name: "separator4"
+						"text": "设置"
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridy": 3
+						"gridwidth": 5
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label9"
+						"text": "主分片数："
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridy": 4
+					} )
+					add( new FormComponent( "javax.swing.JSpinner" ) {
+						name: "spinner1"
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridx": 1
+						"gridy": 4
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label14"
+						"text": "副本数："
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridx": 2
+						"gridy": 4
+					} )
+					add( new FormComponent( "javax.swing.JSpinner" ) {
+						name: "spinner2"
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridx": 3
+						"gridy": 4
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label15"
+						"text": "最大结果："
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridy": 5
+					} )
+					add( new FormComponent( "javax.swing.JSpinner" ) {
+						name: "spinner3"
+					}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+						"gridx": 1
+						"gridy": 5
+					} )
+				}, new FormLayoutConstraints( null ) {
+					"title": "基本信息"
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+					name: "panel4"
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.FlowLayout ) {
+						"alignment": 0
+					} ) {
+						name: "panel5"
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "label17"
+							"text": "动态："
+						} )
+						add( new FormComponent( "javax.swing.JCheckBox" ) {
+							name: "checkBox1"
+						} )
+					}, new FormLayoutConstraints( class java.lang.String ) {
+						"value": "North"
+					} )
+					add( new FormContainer( "javax.swing.JSplitPane", new FormLayoutManager( class javax.swing.JSplitPane ) ) {
+						name: "splitPane1"
+						add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+							name: "scrollPane1"
+							add( new FormComponent( "javax.swing.JTree" ) {
+								name: "tree1"
+								"componentPopupMenu": new FormReference( "popupMenu1" )
+								addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "tree1MouseClicked", true ) )
+							} )
+						}, new FormLayoutConstraints( class java.lang.String ) {
+							"value": "left"
+						} )
+						add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+							name: "scrollPane2"
+							add( new FormComponent( "javax.swing.JList" ) {
+								name: "list1"
+							} )
+						}, new FormLayoutConstraints( class java.lang.String ) {
+							"value": "right"
+						} )
+					}, new FormLayoutConstraints( class java.lang.String ) {
+						"value": "Center"
+					} )
+				}, new FormLayoutConstraints( null ) {
+					"title": "映射"
 				} )
 			}, new FormLayoutConstraints( class java.lang.String ) {
 				"value": "Center"
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )
-			"size": new java.awt.Dimension( 565, 430 )
+			"size": new java.awt.Dimension( 480, 350 )
 		} )
 		add( new FormContainer( "javax.swing.JPopupMenu", new FormLayoutManager( class javax.swing.JPopupMenu ) ) {
 			name: "popupMenu1"
@@ -113,12 +184,145 @@ new FormModel {
 				"text": "修改节点"
 			} )
 		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 720, 60 )
+			"location": new java.awt.Point( 495, 5 )
+		} )
+		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.BorderLayout ) ) {
+			name: "panelmaping"
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
+				"$columnSpecs": "center:0, 97, center:47, 162"
+				"$rowSpecs": "0, 0, 0, 0, 0, 0, 0"
+				"$hGap": 5
+				"$vGap": 5
+				"$alignLeft": true
+				"$alignTop": true
+			} ) {
+				name: "panel3"
+				add( new FormComponent( "com.jformdesigner.designer.wrapper.JGoodiesFormsSeparator" ) {
+					name: "separator1"
+					"text": "  映射"
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridwidth": 4
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label10"
+					"text": "父节点"
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridy": 1
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label11"
+					"text": "text"
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridx": 1
+					"gridy": 1
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label1"
+					"text": "名称："
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridy": 2
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "textField1"
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridx": 1
+					"gridy": 2
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label6"
+					"text": "注释："
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridx": 2
+					"gridy": 2
+				} )
+				add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+					name: "scrollPane3"
+					add( new FormComponent( "javax.swing.JTextArea" ) {
+						name: "textArea1"
+					} )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridx": 3
+					"gridy": 2
+					"gridheight": 2
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label2"
+					"text": "字段类型："
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridy": 3
+				} )
+				add( new FormComponent( "javax.swing.JComboBox" ) {
+					name: "comboBox1"
+					"model": new javax.swing.DefaultComboBoxModel {
+						selectedItem: "text"
+						addElement( "text" )
+						addElement( "keyword" )
+						addElement( "mumeric" )
+						addElement( "date" )
+						addElement( "boolean" )
+						addElement( "object" )
+						addElement( "multi-fields" )
+					}
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridx": 1
+					"gridy": 3
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label3"
+					"text": "分析："
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridy": 4
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "textField3"
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridx": 1
+					"gridy": 4
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label4"
+					"text": " 复制到："
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridy": 5
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "textField4"
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridx": 1
+					"gridy": 5
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label5"
+					"text": " 最大长度："
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridy": 6
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "textField5"
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridx": 1
+					"gridy": 6
+				} )
+			}, new FormLayoutConstraints( class java.lang.String ) {
+				"value": "Center"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 446 )
+			"size": new java.awt.Dimension( 410, 224 )
 		} )
 		addBindingGroup( new FormBindingGroup( class org.jdesktop.beansbinding.BindingGroup ) {
 			"name": "bindingGroup"
 			addBinding( new FormBinding( "this", "treeModel", "tree1", "model" ) )
 			addBinding( new FormBinding( "this", "details", "list1", "elements" ) )
+			addBinding( new FormBinding( "this", "indexDef.fieldName", "textField1", "text" ) )
+			addBinding( new FormBinding( "this", "indexDef.fieldComment", "textArea1", "text" ) )
+			addBinding( new FormBinding( "this", "indexDef.fieldType", "comboBox1", "selectedItem" ) )
+			addBinding( new FormBinding( "this", "indexDef.analyzer", "textField3", "text" ) )
+			addBinding( new FormBinding( "this", "indexDef.copyTo", "textField4", "text" ) )
+			addBinding( new FormBinding( "this", "esIndexFrom.number_of_shards", "spinner1", "value" ) )
+			addBinding( new FormBinding( "this", "esIndexFrom.max_result_window", "spinner3", "value" ) )
+			addBinding( new FormBinding( "this", "esIndexFrom.number_of_replicas", "spinner2", "value" ) )
+			addBinding( new FormBinding( "this", "esIndexFrom.dynamic", "checkBox1", "selected" ) )
 		} )
 		addBindingGroup( new FormBindingGroup( class org.jdesktop.beansbinding.BindingGroup ) {
 			"name": "baseInfoGroup"

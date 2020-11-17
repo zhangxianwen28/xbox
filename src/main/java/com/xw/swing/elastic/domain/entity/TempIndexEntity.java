@@ -22,4 +22,13 @@ public class TempIndexEntity extends BaseEntity {
     private  String indexAlia;
     @Column(name="status")
     private  String status;
+
+    @Column(name="numberOfShards")
+    private  Integer number_of_shards ;
+    @Column(name="numberOfReplicas")
+    private  Integer number_of_replicas;
+    @Column(name="maxResultWindow")
+    private  Integer max_result_window;
+    @Column(name="dynamic")
+    private  Boolean dynamic;
 }

@@ -16,4 +16,7 @@ import java.util.List;
 @org.springframework.stereotype.Repository
 public interface IndexDefinitionRepository extends CrudRepository<TempIndexDefinitionEntity,String> {
         List<TempIndexDefinitionEntity> findByIndexId(String indexId);
+
+        void removeByIndexId(String indexId);
+
 }

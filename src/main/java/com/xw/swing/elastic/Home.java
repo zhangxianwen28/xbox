@@ -105,7 +105,7 @@ public class Home extends JFrame {
                 menu1.setText("\u7ba1\u7406");
 
                 //---- menuItem7 ----
-                menuItem7.setText("\u6811");
+                menuItem7.setText("\u73af\u5883\u8bbe\u7f6e");
                 menuItem7.setActionCommand("card3");
                 menuItem7.addActionListener(e -> menuItem7ActionPerformed(e));
                 menu1.add(menuItem7);
