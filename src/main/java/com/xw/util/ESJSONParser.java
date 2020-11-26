@@ -1,31 +1,75 @@
 package com.xw.util;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import org.apache.commons.beanutils.ConstructorUtils;
-import org.apache.commons.beanutils.PropertyUtils;
+import com.xw.swing.elastic.domain.bo.EsType;
 import org.apache.commons.beanutils.PropertyUtilsBean;
 
-import java.beans.PropertyDescriptor;
-import java.lang.reflect.InvocationTargetException;
-import java.util.Map;
+import java.util.*;
 
 public class ESJSONParser {
 
-    public static void main(String[] args)  {
-        PropertyUtilsBean propertyUtilsBean = new PropertyUtilsBean();
+    public static void main(String[] args) {
 
         JSONObject parse = (JSONObject) JSON.parse(getJson());
-
-       /* Map<String, Object> map = PropertyUtils.describe(parse);
-        map.forEach((k,v)->{
-            System.out.println(k +" : "+v);
-        });*/
-
+        List<String> list = new ArrayList<>();
+        Object o = parse.get("mappings");
+        Queue<String> queue = new ArrayDeque<>();
+        queue.add("mappings");
+        queue.add("properties");
+        Object properties = selectByPath(parse, queue);
+        list.forEach(System.out::println);
 
     }
 
+    private static Object selectByPath(JSONObject parse, Queue<String> queue) {
+        if (parse == null) {
+            return null;
+        }
+        JSONObject ojb = parse;
+        for (String s : queue) {
+            Object o = ojb.get(s);
+            if (o instanceof JSONObject) {
+                ojb = (JSONObject) o;
+            }
+        }
+        return ojb;
+    }
+
+    private static Object select(JSONObject parse, String name) {
+        if (parse == null) {
+            return null;
+        }
+        Object ojb = null;
+        Set<Map.Entry<String, Object>> entries = parse.entrySet();
+        for (Map.Entry<String, Object> entry : entries) {
+            String key = entry.getKey();
+            Object value = entry.getValue();
+            if (name.equals(key)) {
+                ojb = value;
+                break;
+            } else if (value instanceof JSONObject) {
+                JSONObject jsonObject = (JSONObject) value;
+                ojb = select(jsonObject, name);
+            }
+        }
+        return ojb;
+    }
+
+    private static void getProperties(Object object, List<String> list) {
+        if (!(object instanceof JSONObject)) {
+            return;
+        }
+        JSONObject prop = (JSONObject) object;
+        prop.forEach((key, value) -> {
+            if ("properties".equals(key)) {
+                getProperties(value, list);
+            } else {
+                list.add(key);
+            }
+        });
+
+    }
 
     public static String getJson() {
 

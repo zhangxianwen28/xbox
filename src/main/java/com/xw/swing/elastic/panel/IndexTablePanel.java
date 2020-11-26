@@ -7,6 +7,7 @@ package com.xw.swing.elastic.panel;
 import java.awt.event.*;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.xw.controller.IndexController;
 import com.xw.swing.education.domain.dto.PageWrapper;
@@ -161,10 +162,7 @@ public class IndexTablePanel extends JPanel {
 
 
             EsDoc esDoc = new EsDoc();
-
-
-            Map<String, Object> propertiesMap = new HashMap<>();
-
+            JSONObject propertiesMap = new JSONObject();
             List<Tree<IndexDefVO>> indexDefVOTree = indexController.getIndexDefVOTree(String.valueOf(id));
             if(indexDefVOTree==null){
                 return;
@@ -177,20 +175,18 @@ public class IndexTablePanel extends JPanel {
                         propertiesMap.put(field, new EsType(data.getFieldType()));
 
                     } else {
-                        Map<String, Object> properties = new HashMap<>();
-                        buildChildNode(defVOTree, properties);
-                        Object object = ReflectUtil.getObject(new Object(), properties);
-                        Map<String, Object> properties2 = new HashMap<>();
-                        properties2.put("properties", object);
+                        JSONObject child = new JSONObject();
+                        buildChildNode(defVOTree, child);
+                        JSONObject properties2 = new JSONObject();
+                        properties2.put("properties", child);
                         propertiesMap.put(field, properties2);
                     }
                 }
             }
-            Object obj = ReflectUtil.getObject(new Object(), propertiesMap);
-            esDoc.setMappings(obj);
-            esDoc.setSettings(new Object());
+            esDoc.setMappings(propertiesMap);
+            esDoc.setSettings(new JSONObject());
 
-            String str = JSON.toJSONString(obj, SerializerFeature.PrettyFormat);
+            String str = JSON.toJSONString(esDoc, SerializerFeature.PrettyFormat);
             System.err.println(str);
             String newstr = str.replaceAll("\t", "    ");
             setJsonView(newstr);
@@ -227,7 +223,7 @@ public class IndexTablePanel extends JPanel {
         }
     }
 
-    private void buildChildNode(Tree<IndexDefVO> tree, Map<String, Object> properties) {
+    private void buildChildNode(Tree<IndexDefVO> tree, JSONObject properties) {
         if (!tree.isHasChild()) {
             return;
         }
