@@ -8,11 +8,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
-/**
- * Receive Application
- *
- * @author aio
- */
+
 @SpringBootApplication
 @EnableScheduling //启动定时
 @EnableAsync //启用异步

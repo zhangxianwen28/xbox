@@ -1,7 +1,7 @@
-package com.xw.util;
+package com.xw.util.task;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.redis.core.RedisTemplate;
+
 import java.math.BigDecimal;
 import java.time.Duration;
 import java.time.Instant;
@@ -21,8 +21,9 @@ import java.util.function.Function;
  */
 @Slf4j
 public class BatchTask4 {
+
     // 生产队列
-    private final BlockingQueue<List<String>> supplierQueue = new LinkedBlockingQueue<>(5000);
+    private final BlockingQueue<List<String>> supplierQueue = new LinkedBlockingQueue<>(10);
     // 任务总数量
     private final Integer totalTask;
     // 已处理任务数量
@@ -34,19 +35,28 @@ public class BatchTask4 {
     // 消费计数器
     public final AtomicLong consumerCounter = new AtomicLong(0);
 
+    private BatchTaskListener batchTaskListener;
 
-    private BatchTask4(int startSN, int endSN, int snSize) {
+
+
+    private BatchTask4(int startSN, int endSN, int snSize, BatchTaskListener batchTaskListener) {
         this.totalTask = ((endSN - startSN) * snSize);
         this.maxSN = endSN;
         this.producerCounter.set(startSN);
         this.consumerCounter.set(startSN);
+        this.batchTaskListener = batchTaskListener;
         log.info("处理任务数量 {}  当前序号 {}  最大序号 {} ", totalTask, producerCounter, maxSN);
     }
 
-    public static BatchTask4 custom(int startSN, int endSN, int size) {
-        BatchTask4 batchTask4 = new BatchTask4(startSN, endSN, size);
+    public static BatchTask4 custom(int startSN ,int endSN, int size, BatchTaskListener batchTaskListener) {
+        BatchTask4 batchTask4 = new BatchTask4(startSN, endSN, size, batchTaskListener);
         batchTask4.analyze();
         return batchTask4;
+    }
+
+    public  BatchTask4 registerToListen(BatchTaskListener batchTaskListener) {
+        this.batchTaskListener  = batchTaskListener;
+        return this;
     }
 
     /**
@@ -61,11 +71,9 @@ public class BatchTask4 {
                         if (sn > maxSN) {
                             break;
                         }
-                        Instant start = Instant.now();
+                        //Instant start = Instant.now();
                         supplierQueue.put(consumer.apply(sn));
-                        if (log.isDebugEnabled()) {
-                            log.debug("生产耗时: {} {}", Duration.between(start, Instant.now()).toMillis(), sn);
-                        }
+                        //log.info("生产耗时: {} sn {} size{}", Duration.between(start, Instant.now()).toMillis(), sn,supplierQueue.size());
 
                     } catch (InterruptedException e) {
                         e.printStackTrace();
@@ -81,7 +89,7 @@ public class BatchTask4 {
     /**
      * 消费者
      */
-    public void consumer(Consumer<List<String>> consumer, int threadCount, RedisTemplate redisTemplate) {
+    public void consumer(Consumer<List<String>> consumer, int threadCount) {
         CountDownLatch countDownLatch = new CountDownLatch(threadCount);
         for (int i = 0; i < threadCount; i++) {
             Thread thread = new Thread(() -> {
@@ -89,21 +97,25 @@ public class BatchTask4 {
                     try {
                         long sn = consumerCounter.incrementAndGet();
                         if (sn > maxSN) {
-                            log.info("初始化断点续传值为0 ,消费结束");
-                            RedisUtils.save(redisTemplate, "batchPatent", "0");
+                            if(batchTaskListener!=null){
+                                batchTaskListener.end();
+
+                            }
                             break;
                         }
                         List<String> take = supplierQueue.take();
                         if (take.isEmpty()) {
-                            log.warn("获取任务 take.isEmpty()");
+                            log.warn("获取任务 isEmpty");
                             continue;
                         }
                         Instant start = Instant.now();
                         int size = take.size();
                         consumer.accept(take);
-                        log.info("耗时: {}     更新节点: {}", (Duration.between(start, Instant.now()).toMillis()),  sn);
+                        log.info("耗时: {}     更新点位: {}", (Duration.between(start, Instant.now()).toMillis()), sn);
                         handleTaskCount.addAndGet(size);
-                        RedisUtils.save(redisTemplate, "batchPatent", String.valueOf(sn));
+                        if(batchTaskListener!=null){
+                            batchTaskListener.process(String.valueOf(sn));
+                        }
                     } catch (Exception e) {
                         e.printStackTrace();
                         break;

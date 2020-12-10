@@ -26,7 +26,7 @@ public class DataSourceAspect {
     @Bean
     public Advisor dataSourceAdvisor() {
         Pointcut pointcut = new AnnotationMatchingPointcut(Dao.class, true);
-        Advice advice = new MethodAroundAdvice();
+        Advice advice = new MethodAroundAdvice2();
         return new DefaultPointcutAdvisor(pointcut, advice);
     }
 
