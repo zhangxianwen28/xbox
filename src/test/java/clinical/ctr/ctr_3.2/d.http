@@ -1,0 +1,65 @@
+POST {{host}}clinical/ctr/dimension/drug
+Content-Type: application/json
+pmcucookie: {{pmcucookie}}
+
+{
+  "isHierarchical": false,
+  "name": "drug",
+  "filterType": "terms",
+  "size": 20,
+  "page": 1,
+  "sortBy": "count",
+  "include": "",
+  "searchId": "68a0c013-223f-4e9d-a10e-7dc72e00f067"
+}
+
+<> 2020-10-13T112352.200.json
+<> 2020-10-13T104311.200.json
+<> 2020-10-13T104129.404.json
+<> 2020-10-13T104035.504.html
+<> 2020-10-13T103839.200.json
+<> 2020-10-13T103819.200.json
+<> 2020-10-13T103811.200.json
+<> 2020-10-13T103752.200.json
+<> 2020-10-13T103725.200.json
+
+###
+
+POST {{host}}clinical/ctr/dimension/researcher
+Content-Type: application/json
+pmcucookie: {{pmcucookie}}
+
+{
+  "isHierarchical": false,
+  "name": "majorResearcher",
+  "filterType": "terms",
+  "size": 20,
+  "page": 1,
+  "sortBy": "count",
+  "include": "",
+  "searchId": "68a0c013-223f-4e9d-a10e-7dc72e00f067"
+}
+
+<> 2020-10-13T114022.200.json
+
+
+###
+
+POST {{host}}clinical/ctr/dimension/sponsor
+Content-Type: application/json
+pmcucookie: {{pmcucookie}}
+
+{
+  "isHierarchical": false,
+  "name": "sponsor",
+  "filterType": "terms",
+  "size": 20,
+  "page": 1,
+  "sortBy": "count",
+  "include": "",
+  "searchId": "68a0c013-223f-4e9d-a10e-7dc72e00f067"
+}
+
+<> 2020-10-13T114252.200.json
+
+###

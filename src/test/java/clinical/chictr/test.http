@@ -1,0 +1,244 @@
+###
+POST  {{host}}/clinical/ChiCtrFilter
+Content-Type: application/json
+pmcucookie: {{pmcucookie}}
+
+{
+  "appliedFilters": [
+    {
+      "code": "studyType",
+      "name": "studyType",
+      "isHierarchical": false,
+      "items": [],
+      "displayName": "研究类型",
+      "filterType": "terms",
+      "sortBy": "count",
+      "levelListShow": true,
+      "leveBoxShow": "rank",
+      "searchShow": false
+    },
+    {
+      "code": "studyDisease",
+      "name": "studyDisease",
+      "isHierarchical": false,
+      "items": [],
+      "displayName": "研究疾病",
+      "filterType": "terms",
+      "sortBy": "count",
+      "levelListShow": true,
+      "leveBoxShow": "rank",
+      "searchShow": true,
+      "contentVal": "检索范围：</br>研究疾病，研究疾病代码"
+    },
+    {
+      "code": "studyPhase",
+      "name": "studyPhase",
+      "isHierarchical": false,
+      "items": [],
+      "displayName": "研究阶段",
+      "filterType": "terms",
+      "sortBy": "count",
+      "levelListShow": true,
+      "leveBoxShow": "rank",
+      "searchShow": false
+    },
+    {
+      "code": "recruitingStatus",
+      "name": "recruitingStatus",
+      "isHierarchical": false,
+      "items": [],
+      "displayName": "招募状态",
+      "filterType": "terms",
+      "sortBy": "count",
+      "levelListShow": true,
+      "leveBoxShow": "rank",
+      "searchShow": false
+    },
+    {
+      "code": "sponsor",
+      "name": "sponsor",
+      "isHierarchical": false,
+      "items": [],
+      "displayName": "申办者",
+      "filterType": "terms",
+      "sortBy": "count",
+      "levelListShow": true,
+      "leveBoxShow": "rank",
+      "searchShow": true,
+      "contentVal": "检索范围：</br>申办者"
+    },
+    {
+      "code": "ageRange",
+      "name": "ageRange",
+      "isHierarchical": false,
+      "items": [],
+      "displayName": "年龄范围",
+      "filterType": "terms",
+      "sortBy": "count",
+      "levelListShow": true,
+      "leveBoxShow": "rank",
+      "searchShow": false
+    },
+    {
+      "code": "registerDate",
+      "name": "registerDate",
+      "isHierarchical": false,
+      "items": [],
+      "displayName": "注册日期",
+      "range": {
+        "format": "yyyy-MM-dd",
+        "dataTypes": "date"
+      },
+      "filterType": "termRange",
+      "sortBy": "key",
+      "typeYear": "typeYear",
+      "leveBoxShow": "hour",
+      "timeAlternative": true
+    },
+    {
+      "code": "group",
+      "name": "group",
+      "isHierarchical": false,
+      "items": [],
+      "displayName": "组别",
+      "filterType": "terms",
+      "sortBy": "count",
+      "levelListShow": true,
+      "leveBoxShow": "rank",
+      "searchShow": false
+    },
+    {
+      "code": "blinding",
+      "name": "blinding",
+      "isHierarchical": false,
+      "items": [],
+      "displayName": "盲法",
+      "filterType": "terms",
+      "sortBy": "count",
+      "levelListShow": true,
+      "leveBoxShow": "rank",
+      "searchShow": false
+    },
+    {
+      "code": "sampleSize",
+      "name": "sampleSize",
+      "isHierarchical": false,
+      "items": [],
+      "displayName": "样本量",
+      "filterType": "terms",
+      "sortBy": "count",
+      "levelListShow": true,
+      "leveBoxShow": "rank",
+      "searchShow": false
+    },
+    {
+      "code": "researchInstitutions",
+      "name": "researchInstitutions",
+      "isHierarchical": false,
+      "items": [],
+      "displayName": "研究实施地点",
+      "filterType": "terms",
+      "sortBy": "count",
+      "levelListShow": true,
+      "leveBoxShow": "rank",
+      "searchShow": true,
+      "contentVal": "检索范围：</br>研究实施地点"
+    },
+    {
+      "code": "sex",
+      "name": "sex",
+      "isHierarchical": false,
+      "items": [],
+      "displayName": "性别",
+      "filterType": "terms",
+      "sortBy": "count",
+      "leveBoxShow": "compound"
+    },
+    {
+      "code": "fundingSource",
+      "name": "fundingSource",
+      "isHierarchical": false,
+      "items": [],
+      "displayName": "经费来源",
+      "filterType": "terms",
+      "sortBy": "count",
+      "levelListShow": true,
+      "leveBoxShow": "rank",
+      "searchShow": true,
+      "contentVal": "检索范围：</br>经费来源"
+    },
+    {
+      "code": "updateTime",
+      "name": "updateTime",
+      "isHierarchical": false,
+      "items": [],
+      "displayName": "最近更新日期",
+      "range": {
+        "format": "yyyy-MM-dd",
+        "dataTypes": "date"
+      },
+      "filterType": "termRange",
+      "sortBy": "key",
+      "typeYear": "typeYear",
+      "leveBoxShow": "hour",
+      "timeAlternative": true
+    }
+  ],
+  "customSearch": [
+    {
+      "name": "registerInfo",
+      "displayName": "注册题目/题目简写/正式科学名称",
+      "key": "改良",
+      "filterType": "custom",
+      "logicalRelation": "AND",
+      "values": [
+        "改良"
+      ]
+    },
+    {
+      "name": "intervention",
+      "displayName": "干预措施",
+      "key": "",
+      "placeholder": "如：西格列汀",
+      "filterType": "custom",
+      "logicalRelation": "AND",
+      "values": []
+    },
+    {
+      "name": "studyDisease",
+      "displayName": "研究疾病",
+      "key": "",
+      "placeholder": "如：乳腺癌",
+      "filterType": "custom",
+      "logicalRelation": "AND",
+      "values": []
+    },
+    {
+      "code": "filterText",
+      "displayName": "结果中检索",
+      "filterType": "custom",
+      "key": "",
+      "logicalRelation": "AND",
+      "name": "fullText",
+      "values": []
+    }
+  ],
+  "searchId": "c346130c-f31a-4d75-bdf0-edc5309aa966"
+}
+
+
+
+
+<> 2020-05-15T025004.200.json
+<> 2020-05-15T024855.200.json
+<> 2020-05-15T023947.200.json
+<> 2020-05-15T023925.200.json
+<> 2020-05-15T023830.200.json
+<> 2020-05-15T023723.200.json
+<> 2020-05-15T023720.200.json
+<> 2020-05-15T023617.200.json
+<> 2020-05-15T111508.200.json
+<> 2020-05-15T111404.200.json
+<> 2020-05-15T110805.200.json
+
+###

@@ -1,0 +1,23 @@
+### 大框检索
+POST {{host}}/clinical/ctr/ctrNumber
+Content-Type: application/json
+pmcucookie: {{pmcucookie}}
+
+{
+  "page": 1,
+  "searchType": "QS",
+  "size": 20,
+  "sortBy": "updateDate",
+  "sortOrder": "DESC"
+}
+
+<> 2020-09-24T103003.200.json
+<> 2020-09-22T111425.200.json
+<> 2020-09-22T111404.200.json
+<> 2020-09-22T110358.404.json
+<> 2020-09-22T110300.404.json
+<> 2020-09-22T110243.404.json
+
+
+
+###

@@ -1,0 +1,26 @@
+### 大框检索
+POST {{host}}/clinical/getCtrSearch
+Content-Type: application/json
+pmcucookie: {{pmcucookie}}
+
+{
+  "page": 1,
+  "searchType": "QS",
+  "size": 20,
+  "sortBy": "updateDate",
+  "sortOrder": "DESC"
+}
+
+<> 2020-05-22T091102.200.json
+<> 2020-05-21T014409.200.json
+<> 2020-05-21T013022.200.json
+<> 2020-05-21T012731.200.json
+<> 2020-05-21T012538.404.json
+<> 2020-05-21T012530.404.json
+<> 2020-05-21T012523.404.json
+<> 2020-05-21T113025.200.json
+<> 2020-05-21T110113.200.json
+<> 2020-05-20T103031.200.json
+<> 2020-05-20T095704.200.json
+
+###

@@ -1,0 +1,115 @@
+###
+POST http://localhost:6501/literature/filter
+Content-Type: application/json
+pmcucookie: e4ca518212294dccac1a3afbcf76b674
+
+{
+  "appliedFilters": [
+    {
+      "code": "publicationType",
+      "name": "publicationType",
+      "isHierarchical": false,
+      "items": [],
+      "displayName": "文献类型",
+      "filterType": "terms",
+      "sortBy": "key",
+      "levelListShow": true,
+      "leveBoxShow": "rank",
+      "searchShow": false,
+      "contentVal": ""
+    },
+    {
+      "code": "journalMedlineTa",
+      "name": "journalMedlineTa",
+      "isHierarchical": false,
+      "items": [],
+      "displayName": "期刊名称",
+      "filterType": "terms",
+      "sortBy": "key",
+      "levelListShow": true,
+      "leveBoxShow": "rank",
+      "searchShow": true,
+      "contentVal": ""
+    },
+    {
+      "code": "journalIssuePubdateFmt",
+      "name": "journalIssuePubdateFmt",
+      "isHierarchical": false,
+      "items": [],
+      "displayName": "出版日期",
+      "filterType": "termRange",
+      "range": {
+        "format": "yyyy-MM-dd",
+        "dataTypes": "date"
+      },
+      "leveBoxShow": "hour"
+    },
+    {
+      "code": "freeText",
+      "name": "freeText",
+      "isHierarchical": false,
+      "items": [],
+      "displayName": "免费原文",
+      "filterType": "terms",
+      "sortBy": "count",
+      "leveBoxShow": "compound"
+    }
+  ],
+  "customSearch": [
+    {
+      "name": "articleTitle",
+      "displayName": "文献标题",
+      "key": "",
+      "filterType": "custom",
+      "logicalRelation": "AND",
+      "values": []
+    },
+    {
+      "name": "keyword",
+      "displayName": "关键词",
+      "key": "",
+      "placeholder": "",
+      "filterType": "custom",
+      "logicalRelation": "AND",
+      "values": []
+    },
+    {
+      "name": "articleAuthor",
+      "displayName": "作者",
+      "key": "Kim MS,",
+      "placeholder": "",
+      "filterType": "custom",
+      "logicalRelation": "AND",
+      "values": [
+
+      ]
+    },
+    {
+      "code": "filterText",
+      "displayName": "结果中检索",
+      "filterType": "custom",
+      "key": "",
+      "logicalRelation": "AND",
+      "name": "fullText",
+      "values": ["10.1080/14756366.2019.1693555"]
+    }
+  ],
+  "searchId": "1e09c4f2-ad12-41f4-9014-69bd81875b01"
+}
+
+<> 2020-05-16T044051.200.json
+<> 2020-05-16T043903.200.json
+<> 2020-05-16T043320.200.json
+<> 2020-05-16T043240.200.json
+<> 2020-05-16T042610.200.json
+<> 2020-05-16T041632.200.json
+<> 2020-05-16T041010.200.json
+<> 2020-05-15T041035.200.json
+<> 2020-05-15T041010.200.json
+<> 2020-05-15T040532.200.json
+<> 2020-05-15T040049.200.json
+<> 2020-05-15T035953.500.json
+<> 2020-05-14T013338.200.json
+<> 2020-05-14T013248.200.json
+
+###

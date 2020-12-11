@@ -1,0 +1,6 @@
+GET {{host}}/clinical/getChiCtrVO/1250226953726583140
+pmcucookie: {{pmcucookie}}
+
+<> 2020-05-15T032932.200.json
+
+###

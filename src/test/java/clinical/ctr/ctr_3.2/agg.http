@@ -1,0 +1,214 @@
+POST {{host}}clinical/ctr/CtrAggregationQuery
+Content-Type: application/json
+pmcucookie: {{pmcucookie}}
+
+{
+  "appliedFilters": [
+    {
+      "code": "drug",
+      "name": "drug",
+      "isHierarchical": false,
+      "items": [],
+      "displayName": "相关药物(药渡标定)",
+      "filterType": "terms",
+      "sortBy": "count"
+    },
+    {
+      "code": "drugType",
+      "name": "drugType",
+      "isHierarchical": false,
+      "items": [{
+        "id": "药物类型",
+        "isLeaf": true,
+        "name": "药物类型"
+      }],
+      "displayName": "药物类型",
+      "filterType": "terms"
+    },
+    {
+      "code": "testRange",
+      "name": "testRange",
+      "isHierarchical": false,
+      "items": [],
+      "displayName": "试验范围",
+      "filterType": "terms"
+    },
+    {
+      "code": "testClass",
+      "name": "testClass",
+      "isHierarchical": false,
+      "items": [],
+      "displayName": "试验分类",
+      "filterType": "terms"
+    },
+    {
+      "code": "testDesignType",
+      "name": "testDesignType",
+      "isHierarchical": false,
+      "items": [],
+      "displayName": "设计类型",
+      "filterType": "terms"
+    },
+    {
+      "code": "testByStages",
+      "name": "testByStages",
+      "isHierarchical": false,
+      "items": [],
+      "displayName": "试验分期",
+      "filterType": "terms"
+    },
+    {
+      "code": "testStatus",
+      "name": "testStatus",
+      "isHierarchical": false,
+      "items": [],
+      "displayName": "试验状态",
+      "filterType": "terms"
+    },
+    {
+      "code": "firstPublicDate",
+      "name": "firstPublicDate",
+      "isHierarchical": false,
+      "items": [],
+      "displayName": "首次公开日期",
+      "filterType": "termRange",
+      "range": {
+        "format": "yyyy-MM-dd",
+        "dataTypes": "date"
+      }
+    },
+    {
+      "code": "blindMethod",
+      "name": "blindMethod",
+      "isHierarchical": false,
+      "items": [],
+      "displayName": "盲法",
+      "filterType": "terms"
+    },
+    {
+      "code": "sex",
+      "name": "sex",
+      "isHierarchical": false,
+      "items": [],
+      "displayName": "性别",
+      "filterType": "terms"
+    },
+    {
+      "code": "healthySubjects",
+      "name": "healthySubjects",
+      "isHierarchical": false,
+      "items": [],
+      "displayName": "健康受试者",
+      "filterType": "terms"
+    },
+    {
+      "code": "blindMethod",
+      "name": "blindMethod",
+      "isHierarchical": false,
+      "items": [],
+      "displayName": "盲法",
+      "filterType": "terms"
+    },
+    {
+      "code": "subjectsGroupDate_domestic",
+      "name": "subjectsGroupDate_domestic",
+      "isHierarchical": false,
+      "items": [],
+      "displayName": "首例受试者入组日期（国内）",
+      "filterType": "termRange",
+      "range": {
+        "format": "yyyy-MM-dd",
+        "dataTypes": "date"
+      }
+    },
+    {
+      "code": "subjectsGroupDate_abroad",
+      "name": "subjectsGroupDate_abroad",
+      "isHierarchical": false,
+      "items": [],
+      "displayName": "首例受试者入组日期（国际）",
+      "filterType": "termRange",
+      "range": {
+        "format": "yyyy-MM-dd",
+        "dataTypes": "date"
+      }
+    },
+    {
+      "code": "testExpirationDate_abroad",
+      "name": "testExpirationDate_abroad",
+      "isHierarchical": false,
+      "items": [],
+      "displayName": "试验终止日期（国内）",
+      "filterType": "termRange",
+      "range": {
+        "format": "yyyy-MM-dd",
+        "dataTypes": "date"
+      }
+    },
+    {
+      "code": "testExpirationDate_domestic",
+      "name": "testExpirationDate_domestic",
+      "isHierarchical": false,
+      "items": [],
+      "displayName": "试验终止日期（国际）",
+      "filterType": "termRange",
+      "range": {
+        "format": "yyyy-MM-dd",
+        "dataTypes": "date"
+      }
+    }
+  ],
+  "customSearch": [
+    {
+      "name": "testName",
+      "displayName": "实验名称",
+      "filterType": "custom",
+      "logicalRelation": "AND",
+      "values": []
+    },
+    {
+      "name": "ctrDrugName",
+      "displayName": "药物名称",
+      "filterType": "custom",
+      "logicalRelation": "AND",
+      "values": []
+    },
+    {
+      "name": "indication",
+      "displayName": "适应症",
+      "filterType": "custom",
+      "logicalRelation": "AND",
+      "values": []
+    },
+    {
+      "code": "fullText",
+      "displayName": "综合检索",
+      "filterType": "custom",
+      "logicalRelation": "AND",
+      "name": "fullText",
+      "values": []
+    }
+  ],
+  "isHierarchical": false,
+  "name": "drugType",
+  "filterType": "terms",
+  "size": 20,
+  "page": 1,
+  "sortBy": "count",
+  "include": ""
+}
+
+<> 2020-09-22T055430.200.json
+<> 2020-05-21T014900.200.json
+<> 2020-05-21T012454.504.html
+<> 2020-05-21T012338.200.json
+<> 2020-05-21T012237.200.json
+<> 2020-05-21T011655.200.json
+<> 2020-05-21T011110.200.json
+<> 2020-05-21T011053.200.json
+<> 2020-05-21T113949.200.json
+<> 2020-05-21T113833.405.json
+<> 2020-05-21T113753.405.json
+<> 2020-05-19T022250.405.json
+
+###

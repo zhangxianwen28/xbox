@@ -1,0 +1,17 @@
+POST https://dev-data.pharmacodia.com/v3/api/literature/getLiteratureCount?_t=1591260881
+Content-Type: application/json
+
+{}
+
+<> 2020-06-04T045614.200.json
+<> 2020-06-04T045138.405.html
+<> 2020-06-04T045013.405.html
+<> 2020-06-04T044943.200.html
+<> 2020-06-04T044834.405.html
+<> 2020-06-04T044733.405.html
+<> 2020-06-04T044639.302.html
+<> 2020-05-19T011454.200.json
+<> 2020-05-19T011403.200.json
+
+
+###

@@ -1,0 +1,34 @@
+POST https://dev-rdb.pharmacodia.com/api/literature/export/validate
+Content-Type: application/json
+pmcucookie: e4ca518212294dccac1a3afbcf76b674
+
+{
+  "searchId": "051d1690-835b-485c-a4f9-ee0f68f73020",
+  "isDirectElection": false,
+  "columnNames": [
+    "articleTitle_search ","abstr_search ","articleAuthor","source","publicationType","freeText","articleId"
+  ]
+}
+
+<> 2020-05-25T105556.200.json
+<> 2020-05-25T105250.200.json
+<> 2020-05-25T105051.504.html
+<> 2020-05-25T104900.200.json
+
+
+###
+POST https://dev-rdb.pharmacodia.com/api/literature/export
+Content-Type: application/json
+pmcucookie: e4ca518212294dccac1a3afbcf76b674
+
+{
+  "searchId": "051d1690-835b-485c-a4f9-ee0f68f73020",
+  "isDirectElection": false,
+  "columnNames": [
+    "articleTitle_search ","abstr_search ","articleAuthor","source","publicationType","freeText","articleId"
+  ]
+}
+
+<> 2020-05-25T105710.200.txt
+
+###

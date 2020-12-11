@@ -1,0 +1,12 @@
+POST {{host}}/clinical/getCtrPage
+Content-Type: application/json
+pmcucookie: {{pmcucookie}}
+
+{
+	"page": 2,
+	"size": 20,
+	"searchId": "176e383b-fa94-4e06-afa8-a6ada3255e83",
+	"sortOrder": "DESC"
+}
+
+###

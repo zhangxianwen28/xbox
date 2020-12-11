@@ -1,0 +1,12 @@
+POST {{host}}/clinical/getCtrCount
+Content-Type: application/json
+
+{
+
+}
+
+<> 2020-05-20T041145.200.json
+<> 2020-05-20T102828.200.json
+<> 2020-05-20T094641.200.json
+
+###

@@ -1,0 +1,15 @@
+POST {{host}}/clinical/getChiCtrPage
+Content-Type: application/json
+pmcucookie: {{pmcucookie}}
+
+{
+	"page": 2,
+	"size": 20,
+	"searchId": "b3ad8e6f-85b0-42fc-92bf-f1d3f9994581",
+	"sortOrder": "DESC"
+}
+
+<> 2020-05-19T031011.200.json
+<> 2020-05-19T023100.403.json
+
+###

@@ -1,0 +1,145 @@
+POST {{host}}clinical/ChiCtrAggregationQuery
+Content-Type: application/json
+pmcucookie: {{pmcucookie}}
+
+{
+	"appliedFilters": [
+		{
+			"code": "studyType",
+			"name": "studyType",
+			"isHierarchical": false,
+			"items": [],
+			"displayName": "研究类型",
+			"filterType": "terms",
+			"sortBy": "count"
+		},
+		{
+			"code": "studyDisease",
+			"name": "studyDisease",
+			"isHierarchical": false,
+			"items": [
+				{
+					"id": "",
+					"isLeaf": true,
+					"name": "",
+					"displayName": "研究疾病",
+					"count": 1,
+					"checked": true
+				}
+			],
+			"displayName": "研究疾病",
+			"filterType": "terms"
+		},
+		{
+			"code": "studyPhase",
+			"name": "studyPhase",
+			"isHierarchical": false,
+			"items": [],
+			"displayName": "研究阶段",
+			"filterType": "terms"
+		},
+		{
+			"code": "recruitingStatus",
+			"name": "recruitingStatus",
+			"isHierarchical": false,
+			"items": [],
+			"displayName": "招募状态",
+			"filterType": "terms"
+		},
+		{
+			"code": "sponsor",
+			"name": "sponsor",
+			"isHierarchical": false,
+			"items": [],
+			"displayName": "申办者",
+			"filterType": "terms"
+		},
+		{
+			"code": "ageRange",
+			"name": "ageRange",
+			"isHierarchical": false,
+			"items": [],
+			"displayName": "年龄范围",
+			"filterType": "terms"
+		},
+		{
+			"code": "researchInstitutions",
+			"name": "researchInstitutions",
+			"isHierarchical": false,
+			"items": [],
+			"displayName": "研究实施地点",
+			"filterType": "terms"
+		},
+		{
+			"code": "fundingSource",
+			"name": "fundingSource",
+			"isHierarchical": false,
+			"items": [],
+			"displayName": "经费来源",
+			"filterType": "terms"
+		},
+		{
+			"code": "blinding",
+			"name": "blinding",
+			"isHierarchical": false,
+			"items": [],
+			"displayName": "盲法",
+			"filterType": "terms"
+		},
+		{
+			"code": "sex",
+			"name": "sex",
+			"isHierarchical": false,
+			"items": [],
+			"displayName": "性别",
+			"filterType": "terms"
+		},
+		{
+			"code": "registerDate",
+			"name": "registerDate",
+			"isHierarchical": false,
+			"items": [],
+			"displayName": "注册日期",
+			"filterType": "termRange",
+			"range": {
+				"format": "yyyy-MM-dd",
+				"dataTypes": "date"
+			}
+		},
+		{
+			"code": "updateTime",
+			"name": "updateTime",
+			"isHierarchical": false,
+			"items": [],
+			"displayName": "最近更新日期",
+			"filterType": "termRange",
+			"range": {
+				"format": "yyyy-MM-dd",
+				"dataTypes": "date"
+			}
+		}
+	],
+	"isHierarchical": false,
+	"name": "studyDisease",
+	"searchId": "bef039ff-392c-4cdf-af60-a91b7209cea0",
+	"filterType": "terms",
+	"size": 20,
+	"page": 1,
+	"sortBy": "count",
+	"include": ""
+}
+
+<> 2020-05-21T102853.200.json
+<> 2020-05-21T102003.504.html
+<> 2020-05-21T101859.200.json
+<> 2020-05-21T101822.200.json
+<> 2020-05-21T101811.200.json
+<> 2020-05-21T101618.200.json
+<> 2020-05-21T101345.504.html
+<> 2020-05-21T101240.200.json
+<> 2020-05-21T101152.200.json
+<> 2020-05-21T101100.200.json
+<> 2020-05-21T100826.200.json
+<> 2020-05-21T100747.200.json
+
+###

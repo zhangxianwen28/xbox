@@ -1,0 +1,100 @@
+###
+POST http://localhost:6501/literature/filter
+Content-Type: application/json
+pmcucookie: {{pmcucookie}}
+
+{
+  "appliedFilters": [
+    {
+      "code": "publicationType",
+      "name": "publicationType",
+      "isHierarchical": false,
+      "items": [],
+      "displayName": "文献类型",
+      "filterType": "terms",
+      "sortBy": "count",
+      "levelListShow": true,
+      "leveBoxShow": "rank",
+      "searchShow": false,
+      "contentVal": ""
+    },
+    {
+      "code": "journalMedlineTa",
+      "name": "journalMedlineTa",
+      "isHierarchical": false,
+      "items": [],
+      "displayName": "期刊名称",
+      "filterType": "terms",
+      "sortBy": "count",
+      "levelListShow": true,
+      "leveBoxShow": "rank",
+      "searchShow": true,
+      "contentVal": ""
+    },
+    {
+      "code": "journalIssuePubdateFmt",
+      "name": "journalIssuePubdateFmt",
+      "isHierarchical": false,
+      "items": [],
+      "displayName": "出版日期",
+      "filterType": "termRange",
+      "range": {
+        "format": "yyyy-MM-dd",
+        "dataTypes": "date"
+      },
+      "leveBoxShow": "hour"
+    },
+    {
+      "code": "freeText",
+      "name": "freeText",
+      "isHierarchical": false,
+      "items": [],
+      "displayName": "免费原文",
+      "filterType": "terms",
+      "sortBy": "count",
+      "leveBoxShow": "compound"
+    }
+  ],
+  "customSearch": [
+    {
+      "name": "articleTitle",
+      "displayName": "文献标题",
+      "key": "",
+      "filterType": "custom",
+      "logicalRelation": "AND",
+      "values": []
+    },
+    {
+      "name": "keyword",
+      "displayName": "关键词",
+      "key": "",
+      "placeholder": "",
+      "filterType": "custom",
+      "logicalRelation": "AND",
+      "values": []
+    },
+    {
+      "name": "articleAuthor",
+      "displayName": "作者",
+      "key": "",
+      "placeholder": "",
+      "filterType": "custom",
+      "logicalRelation": "AND",
+      "values": []
+    },
+    {
+      "code": "filterText",
+      "displayName": "结果中检索",
+      "filterType": "custom",
+      "key": "",
+      "logicalRelation": "AND",
+      "name": "fullText",
+      "values": []
+    }
+  ],
+  "searchId": "3a81c82d-4e17-40c4-9014-c3944d66d75e"
+}
+
+
+
+###

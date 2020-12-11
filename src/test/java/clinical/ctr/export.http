@@ -1,0 +1,48 @@
+###
+POST  {{host}}/clinical/ctrExport/validate
+
+###
+POST {{host}}/clinical/ctrExport
+pmcucookie: {{pmcucookie}}
+Content-Type: application/json
+
+{
+    "searchId": "daac132e-8521-4f53-9280-c0ee25763cca",
+    "isDirectElection": false,
+	"bizIds": [],
+	"columnNames": [
+		"ctrNumber",
+		"testName",
+		"drugName",
+		"drugList",
+		"indication",
+		"indicationYD",
+		"testDesignType",
+		"testByStages",
+		"testStatus",
+		"drugType",
+		"testRange",
+		"testClass",
+		"blindMethod",
+		"ageShow",
+		"sex",
+		"healthySubjects",
+		"sponsorName",
+		"sponsorYD",
+		"targetGroupNum",
+		"majorResearcher",
+		"firstPublicDate",
+		"subjectsGroupDate",
+		"testExpirationDate",
+		"updateDate"
+	]
+}
+
+<> 2020-05-22T091558.500.json
+<> 2020-05-22T091508.404.json
+<> 2020-05-22T091450.500.json
+<> 2020-05-22T091356.504.html
+<> 2020-05-22T091159.500.json
+
+###
+

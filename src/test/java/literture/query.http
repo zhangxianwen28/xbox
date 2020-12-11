@@ -1,0 +1,23 @@
+###
+POST {{host}}/literature/query
+Content-Type: application/json
+pmcucookie: {{pmcucookie}}
+
+{
+  "qs": "1",
+  "searchType": "QS",
+  "page": 1,
+  "size": 20,
+  "sortBy": "journalIssuePubdateFmt",
+  "sortOrder": "DESC"
+}
+
+<> 2020-06-26T034443.200.json
+<> 2020-06-26T034419.401.json
+<> 2020-05-25T105213.200.json
+<> 2020-05-25T105149.404.json
+<> 2020-05-25T105132.404.json
+<> 2020-05-25T104842.200.json
+<> 2020-05-16T042337.200.json
+
+###

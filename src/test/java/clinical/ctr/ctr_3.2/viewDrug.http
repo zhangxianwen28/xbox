@@ -1,0 +1,175 @@
+POST {{host}}/clinical/ctr/view/drug
+Content-Type: application/json
+pmcucookie: {{pmcucookie}}
+
+{
+  "appliedFilters": [
+
+  ],
+  "searchId": "aaed9353-05f4-4c05-b222-eb4e39fbdad7"
+}
+
+<> 2020-09-25T013957.504.html
+<> 2020-09-25T013802.504.html
+<> 2020-09-25T013645.200.json
+<> 2020-09-23T053842.200.json
+
+
+###
+POST {{host}}/clinical/ctr/view/testByStages
+Content-Type: application/json
+pmcucookie: {{pmcucookie}}
+
+{
+  "appliedFilters": [
+
+  ],
+  "searchId": "e694f902-1e0e-4510-be65-655acc10446e"
+}
+
+<> 2020-09-23T053919.200.json
+<> 2020-09-23T051305.200.json
+###
+
+POST {{host}}/clinical/ctr/view/sponsor
+Content-Type: application/json
+pmcucookie: {{pmcucookie}}
+
+{
+  "appliedFilters": [
+
+  ],
+  "searchId": "e694f902-1e0e-4510-be65-655acc10446e"
+}
+
+<> 2020-09-24T110015.200.json
+<> 2020-09-23T083028.200.json
+<> 2020-09-23T053923.200.json
+
+###
+POST {{host}}/clinical/ctr/view/publicYear
+Content-Type: application/json
+pmcucookie: {{pmcucookie}}
+
+{
+  "appliedFilters": [
+
+  ],
+  "searchId": "b7628dae-3a4e-4fe1-b1d4-198304cbc214"
+}
+
+<> 2020-09-25T123537.401.json
+<> 2020-09-24T051202.200.json
+<> 2020-09-24T022408.200.json
+<> 2020-09-24T022328.200.json
+<> 2020-09-24T021532.200.json
+<> 2020-09-24T010444.200.json
+<> 2020-09-24T123547.200.json
+<> 2020-09-24T123510.200.json
+<> 2020-09-24T120045.200.json
+<> 2020-09-24T115920.200.json
+<> 2020-09-24T113959.200.json
+<> 2020-09-24T111808.504.html
+<> 2020-09-24T111458.200.json
+<> 2020-09-24T111217.200.json
+<> 2020-09-24T110409.504.html
+<> 2020-09-24T105953.200.json
+<> 2020-09-24T104229.200.json
+<> 2020-09-24T101829.200.json
+<> 2020-09-24T101713.200.json
+<> 2020-09-24T101705.200.json
+<> 2020-09-24T101446.200.json
+<> 2020-09-24T101325.200.json
+<> 2020-09-24T100327.504.html
+<> 2020-09-24T100201.200.json
+<> 2020-09-24T100103.200.json
+<> 2020-09-24T100049.200.json
+<> 2020-09-23T085227.200.json
+<> 2020-09-23T085041.200.json
+<> 2020-09-23T084956.200.json
+<> 2020-09-23T084640.200.json
+<> 2020-09-23T084444.200.json
+<> 2020-09-23T084106.504.html
+<> 2020-09-23T083944.200.json
+<> 2020-09-23T083123.200.json
+<> 2020-09-23T082934.200.json
+<> 2020-09-23T082332.504.html
+<> 2020-09-23T082143.200.json
+<> 2020-09-23T082030.200.json
+<> 2020-09-23T081957.200.json
+<> 2020-09-23T081908.200.json
+<> 2020-09-23T081746.200.json
+<> 2020-09-23T081303.200.json
+<> 2020-09-23T080827.200.json
+<> 2020-09-23T080515.504.html
+<> 2020-09-23T080358.200.json
+<> 2020-09-23T080101.200.json
+<> 2020-09-23T072344.404.json
+<> 2020-09-23T072151.200.json
+<> 2020-09-23T072020.200.json
+<> 2020-09-23T071922.200.json
+<> 2020-09-23T060719.504.html
+<> 2020-09-23T060550.200.json
+<> 2020-09-23T060513.502.html
+<> 2020-09-23T060504.502.html
+<> 2020-09-23T060047.200.json
+<> 2020-09-23T055439.200.json
+<> 2020-09-23T054237.200.json
+<> 2020-09-23T053930.200.json
+
+###
+POST {{host}}/clinical/ctr/view/indication
+Content-Type: application/json
+pmcucookie: {{pmcucookie}}
+
+{
+  "appliedFilters": [
+
+  ],
+  "searchId": "e694f902-1e0e-4510-be65-655acc10446e"
+}
+
+<> 2020-09-23T053940.200.json
+
+###
+POST {{host}}/clinical/ctr/view/target
+Content-Type: application/json
+pmcucookie: {{pmcucookie}}
+
+{
+  "appliedFilters": [
+
+  ],
+  "searchId": "e694f902-1e0e-4510-be65-655acc10446e"
+}
+
+<> 2020-09-23T053955.200.json
+<> 2020-09-23T053946.200.json
+
+###
+POST {{host}}/clinical/ctr/view/mainResearchUnit
+Content-Type: application/json
+pmcucookie: {{pmcucookie}}
+
+{
+  "appliedFilters": [
+
+  ],
+  "searchId": "e694f902-1e0e-4510-be65-655acc10446e"
+}
+
+<> 2020-09-23T053950.200.json
+
+###
+POST {{host}}/clinical/ctr/view/mainResearcher
+Content-Type: application/json
+pmcucookie: {{pmcucookie}}
+
+{
+  "appliedFilters": [
+
+  ],
+  "searchId": "e694f902-1e0e-4510-be65-655acc10446e"
+}
+
+###

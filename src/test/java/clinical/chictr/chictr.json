@@ -1,0 +1,144 @@
+{
+  "id": "id",
+  "registerNo_search": "注册号",
+  "registerDate": "注册时间-date",
+  "registerTitle_search":"注册题目",
+  "registerTitleAbbr_search": "注册题目简写",
+  "scientificTitle_search": "正式科学名称",
+  "studySubjectId": "研究课题代号",
+  "partnerRegisterNo_search": "其他机构注册号",
+  "dataManageCommittee": "数据管理委员会",
+  "dataSharing": "共享原始数据方式",
+  "dataCollectionManagement": "数据采集和管理",
+  "registerStatus_search": "注册号状态",
+  "ipdPubDate": "原始数据公开时间",
+  "updateTime": "更新时间-date",
+  "fundingSource": {
+    "name": "经费来源",
+    "_search": "",
+    "_aggs": ""
+  },
+
+
+  "studyType": {
+    "name": "研究类型",
+    "_aggs": ""
+  },
+  "interventions": {
+    "group": "干预措施-组别",
+    "sampleSize": "样本量",
+    "interventionCode": "干预措施代码",
+    "intervention": "干预措施",
+    "intervention_search": "干预措施查询",
+    "_aggs": ""
+  },
+  "studyObjectives": "研究目的",
+  "studyDisease": {
+    "name": "研究疾病",
+    "_search": "",
+    "_aggs": ""
+
+  },
+  "studyLeader_search": "研究负责人",
+  "studyDiseaseCode": "研究疾病代码",
+  "studyDesign": "研究设计",
+  "randomProcedure": "随机方法",
+  "drugOrTreatment": "药物成份或治疗方案详述",
+  "studyPhase": {
+    "name": "研究阶段",
+    "_search": "",
+    "_aggs": ""
+
+  },
+  "recruitingStatus": {
+    "name": "招募状态",
+    "_search":"",
+    "_aggs": ""
+
+  },
+  "sponsor": {
+      "country": "赞助商-国家",
+      "province": "赞助商-省",
+      "city": "赞助商-城市",
+      "institution": "赞助商-机构",
+      "institution_search": "赞助商-机构查询",
+      "address": "赞助商-地址",
+      "_aggs": ""
+  },
+  "ageRange": {
+    "ageShow": "年龄区间",
+    "minAge": "最小年龄",
+    "maxAge": "最大年龄",
+    "ageCustom": "",
+    "_aggs": ""
+
+  },
+  "blinding": {
+    "name": "盲法",
+    "_aggs": ""
+  },
+  "researchInstitutions": {
+    "country": "国家",
+    "province": "省直辖市",
+    "city": "市",
+    "institution": "单位(医院)",
+    "institution_search": "",
+    "institutionLevel": "单位级别",
+    "_aggs": ""
+
+  },
+  "outcomes": {
+    "name": "指标中文名",
+    "type": "指标类型",
+    "measureTime": "测量时间",
+    "measureMethod": "测量方法"
+
+  },
+  "collectingSample": {
+    "name": "采集人体标本-标本中文名",
+    "tissues": "组织",
+    "fateSample": "人体标本去向",
+    "note": ""
+  },
+  "studyResultsFile": "试验结果(有原文即下载原文，无原文为空)",
+
+  "exclusionCriteria": "排除标准",
+  "inclusionCriteria": "纳入标准",
+
+  "applicant_search": "申请人",
+  "applyRegister": {
+    "applicant": "申请联系人",
+    "applicantTelephone": "联系人电话",
+    "applicantFax": "申请人传真",
+    "applicantEmailWebsite": "联系人邮箱",
+    "applicantAddress": "联系人通讯地址",
+    "applicantPostcode": "申请人邮政编码",
+    "applicantInstitution": "联系人单位",
+
+    "studyLeader": "研究负责人",
+    "studyLeaderTelephone": "负责人电话",
+    "studyLeaderFax": "传真",
+    "studyLeaderEmail": "负责人邮箱",
+    "studyLeaderWebsite": "负责人通讯地址",
+    "studyLeaderAddress": "单位地址",
+    "studyPostcode": "邮编",
+
+    "primarySponsor": "试验主办单位",
+    "primarySponsorAddress": "具体地址"
+
+  },
+  "ethicInfo": {
+    "isApproval": "是否获批",
+    "approvalNo": "批件文号",
+    "ethicsCommitteeName": "伦理委员会名称",
+    "approvalDate": "批准日期",
+    "contactName": "伦理委员会联系人",
+    "ethicsCommitteeAddress": "联系地址",
+    "contactPhone": "联系电话",
+    "contactEmail": "联系人邮箱"
+  },
+  "sex": {
+    "name": "性别",
+    "_aggs": ""
+  }
+}
